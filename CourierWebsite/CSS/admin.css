@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url(../deli.jpg) no-repeat center center;
+    background-size: 101.89%;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+/* Login Box Container */
+.login-box {
+    width: 100%;
+    max-width: 380px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Box Header */
+.login-box h1 {
+    font-size: 36px;
+    text-align: center;
+    border-bottom: 2px solid #4caf50;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Textbox Styling */
+.textbox {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 2px solid #4caf50;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.textbox i {
+    color: #4caf50;
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+/* Input Field */
+.textbox input {
+    width: calc(100% - 36px);
+    border: none;
+    background: none;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 8px;
+}
+
+/* Placeholder Styling */
+.textbox input::placeholder {
+    color: #020000;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    background-color: #388e3c;
+    transform: translateY(2px);
+}
+
+/* Go Back Button Container */
+.goback-container {
+    text-align: center;
+    margin-top: 80px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Go Back Button Styling */
+.goback {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0cda13;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.goback:hover {
+    background-color: #0cb84e;
+    transform: translateY(-2px);
+}
+
+.goback:active {
+    background-color: #14ce14;
+    transform: translateY(2px);
+}
