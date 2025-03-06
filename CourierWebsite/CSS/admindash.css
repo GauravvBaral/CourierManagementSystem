@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../deli.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.dashboard {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255); /* Semi-transparent white */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0)
+}
+
+.dashboard h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat {
+    padding: 20px;
+    background: rgb(85, 118, 153); /* Semi-transparent blue */
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.stat h2 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.stat p {
+    margin: 0;
+    font-size: 1em;
+}
+
+.stat button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: rgb(96, 153, 214);
+    background: white;
+    border: 1px solid rgb(111, 164, 220);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.stat button:hover {
+    background: rgb(236, 238, 240);
+    transform: scale(1.1);
+}
+
+/* New hover-button class */
+.hover-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px; /* Larger padding */
+    font-size: 1.2em; /* Larger font size */
+    color: white;
+    background-color: rgb(70, 130, 180); /* Initial blue shade */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hover-button:hover {
+    background-color: rgb(100, 149, 237); /* Lighter blue shade on hover */
+    transform: scale(1.2); /* Increase size slightly */
+}
