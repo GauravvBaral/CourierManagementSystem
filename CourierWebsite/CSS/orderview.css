@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard {
+    max-width: 1350px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 12.35px; /* Reduced by 5% from 13px */
+}
+
+table {
+    width: 39.17%; /* Reduced by 5% from 41.23% */
+    border-collapse: collapse;
+    margin: 12.64px auto; /* Reduced by 5% from 13.3px */
+}
+
+th,
+td {
+    padding: 7.58px; /* Reduced by 5% from 7.98px */
+    text-align: center;
+}
+
+th {
+    background-color: teal;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.hover-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12.64px; /* Reduced by 5% from 13.3px */
+}
+
+.hover-button button {
+    background-color: teal;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hover-button button:hover {
+    background-color: darkcyan;
+    transform: scale(1.05);
+}
