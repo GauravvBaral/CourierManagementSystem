@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background-color: maroon;
+    font-size: 2rem;
+}
+
+table {
+    width: 54%; /* Reduced by 25% from 72% */
+    margin: 22.5px auto; /* Reduced by 25% from 30px */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+caption {
+    font-size: 0.9rem; /* Reduced by 25% from 1.2rem */
+    font-weight: bold;
+    margin-bottom: 7.5px; /* Reduced by 25% from 10px */
+}
+
+th, td {
+    padding: 9px; /* Reduced by 25% from 12px */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 4.5px 11.25px; /* Reduced by 25% from 6px 15px */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.approve_btn {
+    background-color: #4CAF50;
+    margin-right: 7.5px; /* Reduced by 25% from 10px */
+}
+
+.del_btn {
+    background-color: #f44336;
+}
+
+.input-group {
+    margin: 11.25px 0; /* Reduced by 25% from 15px */
+    padding: 3.75px; /* Reduced by 25% from 5px */
+}
+
+.input-group label {
+    font-size: 0.75rem; /* Reduced by 25% from 1rem */
+    color: #555;
+    display: block;
+    margin-bottom: 3.75px; /* Reduced by 25% from 5px */
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 7.5px; /* Reduced by 25% from 10px */
+    font-size: 0.75rem; /* Reduced by 25% from 1rem */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #4CAF50;
+}
+
+.btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 9px 15px; /* Reduced by 25% from 12px 20px */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.75rem; /* Reduced by 25% from 1rem */
+    width: 100%;
+    margin-top: 7.5px; /* Reduced by 25% from 10px */
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+.msg {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 2px solid maroon;
+    color: maroon;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+    width: 80%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section, form {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 22px;
+        padding: 20px;
+    }
+
+    .input-group input[type="text"] {
+        font-size: 14px;
+    }
+}
+
+form {
+    width: 37.5%; /* Reduced by 25% from 50% */
+    margin: 15px auto; /* Reduced by 25% from 20px */
+    background-color: #fff;
+    padding: 15px; /* Reduced by 25% from 20px */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form .input-group {
+    margin-bottom: 15px; /* Reduced by 25% from 20px */
+}
+
+.hover-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hover-button:hover {
+    background-color: rgb(162, 6, 6);
+    transform: scale(1.1);
+}
