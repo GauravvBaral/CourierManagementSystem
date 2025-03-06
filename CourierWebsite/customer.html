@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Register</title>
+    <link rel="stylesheet" href="CSS/customer.css">
+    <script>
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const phone = document.getElementById('phone').value;
+
+            // Email validation using regex
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format! Please enter a valid email address.");
+                return false;
+            }
+
+            // Password match validation
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            // Phone number validation
+            if (phone.length !== 10 || isNaN(phone)) {
+                alert("Phone number must be 10 digits!");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h2>BlueRocket Couriers!</h2>
+    </header>
+
+    <table class="table">
+        <caption>CUSTOMER REGISTER</caption>
+        <form action="process.php" method="POST" onsubmit="return validateForm()">
+            <tr>
+                <th class="customer">Customer Name:</th>
+                <td>
+                    <input type="text" name="username" class="text" placeholder="Enter your Name" required>
+                </td>
+            </tr>
+            <tr>
+                <th class="customer">Customer Email:</th>
+                <td>
+                    <input type="email" name="email" id="email" class="text" placeholder="Enter your Email"
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
+                </td>
+            </tr>
+            <tr>
+                <th class="customer">Customer Address:</th>
+                <td>
+                    <input type="text" name="address" class="text" placeholder="Enter your Address" required>
+                </td>
+            </tr>
+            <tr>
+                <th class="customer">Customer Phone:</th>
+                <td>
+                    <input type="tel" name="phone" id="phone" class="text" placeholder="Enter your Phone Num"
+                        pattern="[0-9]{10}" required maxlength="10"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, ''); if (this.value.length > 10) this.value = this.value.slice(0, 10);">
+                </td>
+            </tr>
+            <tr>
+                <th class="customer">Customer Password:</th>
+                <td>
+                    <input type="password" name="password" id="password" class="text" placeholder="Enter your Password" minlength="8" required>
+                </td>
+            </tr>
+            <tr>
+                <th class="customer">Confirm Password:</th>
+                <td>
+                    <input type="password" name="confirm_password" id="confirm_password" class="text" placeholder="Confirm your Password" minlength="8" required>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" value="SUBMIT" class="button">
+                </td>
+            </tr>
+        </form>
+        <tr>
+            <td align="center" colspan="2">
+                <div class="login-section">
+                    <a href="customerlog.php">
+                        <span style="color: blue;">Already Registered? Log In</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <a href="index.html" class="button1">GO BACK</a>
+</body>
+
+</html>
