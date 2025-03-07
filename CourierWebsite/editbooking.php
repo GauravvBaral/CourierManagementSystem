@@ -35,11 +35,10 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
             // Update order for receiving
             $stmt = $db->prepare("UPDATE orders SET 
                 delivery_received_status = 'received', 
-                received_time = NOW(), 
-                emp_name = ?, 
+                received_time = NOW(),  
                 received_by_emp_name = ? 
                 WHERE id = ?");
-            $stmt->bind_param("ssi", $emp_name_from_session, $emp_name_from_session, $id);
+            $stmt->bind_param("si",  $emp_name_from_session, $id);
             if ($stmt->execute()) {
                 $_SESSION['msg'] = "Order received successfully!";
             } else {
@@ -55,10 +54,9 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
             $stmt = $db->prepare("UPDATE orders SET 
                 delivery_delivered_status = 'delivered', 
                 delivery_time = NOW(), 
-                emp_name = ?, 
                 delivered_by_emp_name = ? 
                 WHERE id = ?");
-            $stmt->bind_param("ssi", $emp_name_from_session, $emp_name_from_session, $id);
+            $stmt->bind_param("si", $emp_name_from_session, $id);
             if ($stmt->execute()) {
                 $_SESSION['msg'] = "Order delivered successfully!";
             } else {
