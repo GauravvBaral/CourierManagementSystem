@@ -57,14 +57,14 @@ if (isset($_POST['update'])) {
     // Update the order in the database
     $stmt = $db->prepare("UPDATE orders SET 
         name = ?, address = ?, phone = ?, customer_email = ?, toname = ?, toaddress = ?, tophone = ?, 
-        weight = ?, status = ?, emp_name = ?, received_by_emp_name = ?, delivered_by_emp_name = ?, 
+        weight = ?, status = ?, received_by_emp_name = ?, delivered_by_emp_name = ?, 
         received_time = IF(status = 'received', NOW(), received_time), 
         delivery_time = IF(status = 'delivered', NOW(), delivery_time)
         WHERE id = ?");
 
-    $stmt->bind_param("sssssssssssssi", 
+    $stmt->bind_param("ssssssssssssi", 
         $name, $address, $phone, $customer_email, $toname, $toaddress, $tophone,
-        $weight, $status, $emp_name, $received_by_emp_name, $delivered_by_emp_name, $id);
+        $weight, $status, $received_by_emp_name, $delivered_by_emp_name, $id);
 
     $_SESSION['msg'] = $stmt->execute() ? "Order updated successfully!" : "Error updating order: " . $stmt->error;
     header('Location: editbooking.php');
