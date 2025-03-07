@@ -84,13 +84,11 @@ CREATE TABLE `orders` (
   `received_time` DATETIME DEFAULT NULL,
   `delivery_time` DATETIME DEFAULT NULL,
   `time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `emp_name` VARCHAR(50) DEFAULT NULL, -- Added foreign key for employee username
   `received_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Added foreign key for employee username
   `delivered_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Added foreign key for employee username
   PRIMARY KEY (`id`),
   FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`customer_email`) REFERENCES `customers`(`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`emp_name`) REFERENCES `employee`(`username`) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (`received_by_emp_name`) REFERENCES `employee`(`username`) ON DELETE SET NULL ON UPDATE CASCADE,
   FOREIGN KEY (`delivered_by_emp_name`) REFERENCES `employee`(`username`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
