@@ -49,7 +49,6 @@ $orderResult = $stmt->get_result();
                     <th>Receiver's Address</th>
                     <th>Receiver's Phone</th>
                     <th>Weight</th>
-                    <th>Price</th>
                     <th>Order Time</th>
                     <th>Status</th>
                     <th>Parcel Received Status</th>
@@ -71,7 +70,6 @@ $orderResult = $stmt->get_result();
                             <td><?php echo htmlspecialchars($row['toaddress']); ?></td>
                             <td><?php echo htmlspecialchars($row['tophone']); ?></td>
                             <td><?php echo htmlspecialchars($row['weight']); ?></td>
-                            <td><?php echo htmlspecialchars($row['price']); ?></td>
                             <td><?php echo htmlspecialchars($row['time']); ?></td>
                             <td><?php echo htmlspecialchars($row['status']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivery_received_status']); ?></td>
