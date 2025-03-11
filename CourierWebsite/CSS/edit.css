@@ -11,7 +11,7 @@ h2 {
     text-align: center;
     background-color: #6daf7d;
     color: white;
-    padding: 20px;
+    padding: 22px;
     margin: 0;
 }
 
@@ -20,9 +20,9 @@ h2 {
     width: 100%;
     background-color: #96b49d;
     color: white;
-    padding: 15px;
+    padding: 14px;
     text-align: center;
-    margin: 10px 0;
+    margin: 9px 0;
 }
 
 .msg a {
@@ -32,9 +32,9 @@ h2 {
 
 /* Table styling */
 table {
-    width: 80%; /* Reduced table width by 10% */
+    width: 74.8%;
     border-collapse: collapse;
-    margin: 20px auto; /* Center the table */
+    margin: 18.7px auto;
 }
 
 thead {
@@ -43,10 +43,10 @@ thead {
 }
 
 th, td {
-    padding: 12px;
+    padding: 11.2px;
     text-align: center;
     border: 1px solid #ddd;
-    font-size: 90%; /* Reduce font size by 10% */
+    font-size: 84.15%;
 }
 
 tr:nth-child(even) {
@@ -62,10 +62,10 @@ tr:hover {
     background-color: #28a745;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 9.35px 18.7px;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4.68px;
     transition: background-color 0.3s ease;
 }
 
@@ -75,22 +75,22 @@ tr:hover {
 
 /* Form input styling */
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 14px;
     text-align: left;
 }
 
 .input-group label {
     font-weight: bold;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 4.68px;
 }
 
 .input-group input, .input-group select {
-    width: 100%; /* Full width */
-    padding: 10px;
-    border-radius: 5px;
+    width: 100%;
+    padding: 9.35px;
+    border-radius: 4.68px;
     border: 1px solid #ccc;
-    font-size: 14px;
+    font-size: 13.1px;
     box-sizing: border-box;
 }
 
@@ -101,24 +101,25 @@ tr:hover {
 
 /* Styling for actions column (buttons) */
 a.edit_btn {
-    padding: 8px 16px;
+    padding: 7.5px 15px;
     background-color: #007bff;
     color: white;
-    border-radius: 5px;
+    border-radius: 4.68px;
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 5px;
+    margin: 4.68px;
 }
+
 a.edit_btn2 {
-    padding: 8px 16px;
+    padding: 7.5px 15px;
     background-color: #08b140;
     color: white;
-    border-radius: 5px;
+    border-radius: 4.68px;
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 5px;
+    margin: 4.68px;
 }
 
 a.edit_btn:hover {
@@ -136,34 +137,34 @@ a.del_btn:hover {
 /* Editbox container styling */
 .editbox {
     background-color: white;
-    width: 70%; /* Reduced width to 70% */
-    margin: 20px auto; /* Center the box */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 65.45%;
+    margin: 18.7px auto;
+    padding: 28.05px;
+    border-radius: 9.35px;
+    box-shadow: 0 0 9.7px rgba(0, 0, 0, 0.1);
 }
 
 /* Editbox form title styling */
 .editbox h3 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 19px;
     color: #6daf7d;
 }
 
 /* Input fields and button styling inside the editbox */
 .editbox .input-group {
-    margin-bottom: 20px;
+    margin-bottom: 18.7px;
 }
 
 .editbox .btn {
-    width: 100%; /* Full width button */
-    padding: 12px;
+    width: 100%;
+    padding: 11.2px;
     background-color: #28a745;
     color: white;
     border: none;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 4.68px;
     transition: background-color 0.3s ease;
 }
 
@@ -171,27 +172,28 @@ a.del_btn:hover {
     background-color: #218838;
 }
 
+/* Hover button remains unchanged */
 .hover-button {
     display: inline-block;
-    padding: 5px 20px; /* Keep original padding */
-    font-size: 1.2em; /* Keep original font size */
-    color: white; /* Keep text color white */
-    background-color: #218838; /* Red color for logout */
-    border: none; /* Remove border */
-    border-radius: 8px; /* Keep rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-    text-align: center; /* Center text */
-    text-decoration: none; /* Remove underline */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 5px 20px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #218838;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .hover-button:hover {
-    background-color: #218838; /* Darker red on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color: #218838;
+    transform: scale(1.05);
 }
 
 .hover-button:active {
-    background-color: #218838; /* Even darker red when clicked */
-    transform: scale(0.95); /* Slightly shrink when clicked */
+    background-color: #218838;
+    transform: scale(0.95);
 }
