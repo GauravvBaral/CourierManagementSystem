@@ -26,7 +26,7 @@ body {
 .login-box h1 {
     font-size: 36px;
     text-align: center;
-    border-bottom: 2px solid #4caf50;
+    border-bottom: 2px solid #f6fdf6;
     margin-bottom: 30px;
     padding-bottom: 10px;
     letter-spacing: 2px;
@@ -40,14 +40,14 @@ body {
     margin: 12px 0;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    border: 2px solid #4caf50;
+    border: 2px solid #cddbcd;
     color: white;
     font-size: 18px;
     transition: all 0.3s ease-in-out;
 }
 
 .textbox i {
-    color: #4caf50;
+    color: #d6e0d6;
     font-size: 20px;
     margin-right: 12px;
 }
@@ -75,7 +75,7 @@ body {
 .btn {
     width: 100%;
     padding: 12px;
-    background-color: #4caf50;
+    background-color:rgb(44, 62, 80);
     border: none;
     color: white;
     font-size: 18px;
@@ -86,12 +86,12 @@ body {
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color:rgb(15, 47, 78);
     transform: translateY(-2px);
 }
 
 .btn:active {
-    background-color: #388e3c;
+    background-color: rgb(14, 34, 54);
     transform: translateY(2px);
 }
 
@@ -109,7 +109,7 @@ body {
 .goback {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0cda13;
+    background-color: rgb(44, 62, 80);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -118,11 +118,11 @@ body {
 }
 
 .goback:hover {
-    background-color: #0cb84e;
+    background-color: rgb(23, 65, 108);
     transform: translateY(-2px);
 }
 
 .goback:active {
-    background-color: #14ce14;
+    background-color: rgb(31, 92, 153);
     transform: translateY(2px);
 }
