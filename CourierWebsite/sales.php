@@ -33,6 +33,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                 <th>Sender's Name</th>
                 <th>Sender's Address</th>
                 <th>Sender's Contact</th>
+                <th>Sender's Email</th>
                 <th>Receiver's Name</th>
                 <th>Receiver's Address</th>
                 <th>Receiver's Contact</th>
@@ -42,8 +43,8 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                 <th>Parcel Receive Status</th>
                 <th>Parcel Deliver Status</th>
                 <th>Received By</th>
-                <th>Receive Time</th>
                 <th>Delivered By</th>
+                <th>Receive Time</th>
                 <th>Delivery Time</th>
                 <th colspan="2" style="padding: 0 20px;">Actions</th>
             </tr>
@@ -54,6 +55,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['address']; ?></td>
                     <td><?php echo $row['phone']; ?></td>
+                    <td><?php echo $row['customer_email']; ?></td>
                     <td><?php echo $row['toname']; ?></td>
                     <td><?php echo $row['toaddress']; ?></td>
                     <td><?php echo $row['tophone']; ?></td>
@@ -63,8 +65,8 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                     <td><?php echo $row['delivery_received_status']; ?></td>
                     <td><?php echo $row['delivery_delivered_status']; ?></td>
                     <td><?php echo $row['received_by_emp_name']; ?></td>
-                    <td><?php echo $row['received_time']; ?></td>
                     <td><?php echo $row['delivered_by_emp_name']; ?></td>
+                    <td><?php echo $row['received_time']; ?></td>
                     <td><?php echo $row['delivery_time']; ?></td>
                     <td>
                         <a class="approve_btn" href="config.php?approve=<?php echo $row['id']; ?>">Approve</a>
