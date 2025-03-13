@@ -6,7 +6,7 @@ body {
 }
 
 .dashboard {
-    max-width: 1350px;
+    max-width: 1400px;
     margin: 50px auto;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -15,18 +15,18 @@ body {
 
 h1 {
     text-align: center;
-    margin-bottom: 12.35px; /* Reduced by 5% from 13px */
+    margin-bottom: 10.58px;
 }
 
 table {
-    width: 39.17%; /* Reduced by 5% from 41.23% */
+    width: 33.58%;
     border-collapse: collapse;
-    margin: 12.64px auto; /* Reduced by 5% from 13.3px */
+    margin: 10.84px auto;
 }
 
 th,
 td {
-    padding: 7.58px; /* Reduced by 5% from 7.98px */
+    padding: 6.5px;
     text-align: center;
 }
 
@@ -47,7 +47,7 @@ tr:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 12.64px; /* Reduced by 5% from 13.3px */
+    margin-top: 12.64px;
 }
 
 .hover-button button {
