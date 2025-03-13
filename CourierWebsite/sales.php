@@ -41,12 +41,12 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                 <th>Order Time</th>
                 <th>Status</th>
                 <th>Parcel Receive Status</th>
-                <th>Parcel Deliver Status</th>
                 <th>Received By</th>
-                <th>Delivered By</th>
                 <th>Receive Time</th>
+                <th>Parcel Deliver Status</th>
+                <th>Delivered By</th>
                 <th>Delivery Time</th>
-                <th colspan="2" style="padding: 0 20px;">Actions</th>
+                <th colspan="3" style="padding: 0 20px;">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -63,10 +63,10 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                     <td><?php echo $row['time']; ?></td>
                     <td><?php echo $row['status']; ?></td>
                     <td><?php echo $row['delivery_received_status']; ?></td>
-                    <td><?php echo $row['delivery_delivered_status']; ?></td>
                     <td><?php echo $row['received_by_emp_name']; ?></td>
-                    <td><?php echo $row['delivered_by_emp_name']; ?></td>
                     <td><?php echo $row['received_time']; ?></td>
+                    <td><?php echo $row['delivery_delivered_status']; ?></td>
+                    <td><?php echo $row['delivered_by_emp_name']; ?></td>
                     <td><?php echo $row['delivery_time']; ?></td>
                     <td>
                         <a class="approve_btn" href="config.php?approve=<?php echo $row['id']; ?>">Approve</a>
