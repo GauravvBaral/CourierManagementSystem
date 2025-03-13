@@ -20,26 +20,23 @@ h1 {
 }
 
 table {
-    width: 29.84%;
-    margin: 12.43px auto;
+    width: 21.08%;
+    margin: 8.76px auto;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 1.10px 5.53px rgba(0, 0, 0, 0.1);
-    /* border: 1px solid #ccc; */
+    box-shadow: 0 0.79px 3.90px rgba(0, 0, 0, 0.1);
 }
 
 caption {
-    font-size: 0.497rem;
+    font-size: 0.351rem;
     font-weight: bold;
-    margin-bottom: 4.15px;
-    margin-bottom: 20px;
+    margin-bottom: 2.93px;
 }
 
 th, td {
-    padding: 4.97px;
+    padding: 3.51px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-    /* border: 1px solid #ddd; */
 }
 
 th {
@@ -59,14 +56,14 @@ tr:hover {
 a {
     text-decoration: none;
     color: white;
-    padding: 2.49px 6.22px;
+    padding: 1.76px 4.40px;
     border-radius: 5px;
     font-weight: bold;
 }
 
 .approve_btn {
     background-color: #4CAF50;
-    margin-right: 4.15px;
+    margin-right: 3.18px;
 }
 
 .del_btn {
@@ -74,22 +71,22 @@ a {
 }
 
 .input-group {
-    margin: 6.22px 0;
-    padding: 2.07px;
+    margin: 4.40px 0;
+    padding: 1.59px;
 }
 
 .input-group label {
-    font-size: 0.415rem;
+    font-size: 0.293rem;
     color: #555;
     display: block;
-    margin-bottom: 2.07px;
+    margin-bottom: 1.59px;
 }
 
 .input-group input,
 .input-group select {
     width: 100%;
-    padding: 4.15px;
-    font-size: 0.415rem;
+    padding: 3.18px;
+    font-size: 0.293rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     outline: none;
@@ -103,13 +100,13 @@ a {
 .btn {
     background-color: #4CAF50;
     color: white;
-    padding: 4.97px 8.29px;
+    padding: 3.47px 5.88px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 0.415rem;
+    font-size: 0.293rem;
     width: 100%;
-    margin-top: 4.15px;
+    margin-top: 3.18px;
 }
 
 .btn:hover {
@@ -141,21 +138,21 @@ a {
     }
 
     .input-group input[type="text"] {
-        font-size: 7.74px;
+        font-size: 5.94px;
     }
 }
 
 form {
-    width: 20.72%;
-    margin: 8.29px auto;
+    width: 14.94%;
+    margin: 5.88px auto;
     background-color: #fff;
-    padding: 8.29px;
+    padding: 5.88px;
     border-radius: 8px;
-    box-shadow: 0 1.10px 5.53px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.79px 3.90px rgba(0, 0, 0, 0.1);
 }
 
 form .input-group {
-    margin-bottom: 8.29px;
+    margin-bottom: 5.88px;
 }
 
 .hover-button {
