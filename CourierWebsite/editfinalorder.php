@@ -48,14 +48,7 @@ if (isset($_POST['update'])) {
     $stmt->bind_result($current_status, $delivery_received_status, $delivery_delivered_status);
     $stmt->fetch();
     $stmt->close();
-
-    // Prevent receiving or delivering if status is "pending"
-    if ($current_status === "pending" && ($status === "received" || $status === "delivered")) {
-        $_SESSION['msg'] = "Cannot receive or deliver an order that is still pending.";
-        header('Location: editbooking.php');
-        exit();
-    }
-
+    
     // Get the current employee's username from session
     $emp_name = $_SESSION['username'] ?? null;
 
