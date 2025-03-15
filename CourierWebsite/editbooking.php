@@ -30,6 +30,8 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
 
     if ($status === 'pending') {
         $_SESSION['msg'] = "Cannot receive or deliver an order with 'pending' status.";
+    } elseif ($status === 'denied') {
+        $_SESSION['msg'] = "Can't receive or deliver if the order is denied.";
     } else {
         if ($action === 'receive') {
             if ($delivery_received_status === 'received') {
@@ -133,14 +135,14 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                     <td><?= htmlspecialchars($row['received_time']); ?></td>
                     <td><?= htmlspecialchars($row['delivery_time']); ?></td>
                     <td>
-                        <?php if ($row['status'] !== 'pending'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'denied'): ?>
                             <a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a>
                         <?php else: ?>
                             <span style="color: gray;">Not Allowed</span>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if ($row['status'] !== 'pending'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'denied'): ?>
                             <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
                         <?php else: ?>
                             <span style="color: gray;">Not Allowed</span>
@@ -156,5 +158,3 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
     </div>
 </body>
 </html>
-
-
