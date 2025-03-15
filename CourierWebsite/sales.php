@@ -37,14 +37,12 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                 <th>Receiver's Name</th>
                 <th>Receiver's Address</th>
                 <th>Receiver's Contact</th>
-                <th>Package Weight (kg)</th>
+                <th> Weight (kg)</th>
                 <th>Order Time</th>
                 <th>Status</th>
                 <th>Parcel Receive Status</th>
-                <th>Received By</th>
-                <th>Receive Time</th>
                 <th>Parcel Deliver Status</th>
-                <th>Delivered By</th>
+                <th>Receive Time</th>
                 <th>Delivery Time</th>
                 <th colspan="3" style="padding: 0 20px;">Actions</th>
             </tr>
@@ -63,10 +61,8 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                     <td><?php echo $row['time']; ?></td>
                     <td><?php echo $row['status']; ?></td>
                     <td><?php echo $row['delivery_received_status']; ?></td>
-                    <td><?php echo $row['received_by_emp_name']; ?></td>
-                    <td><?php echo $row['received_time']; ?></td>
                     <td><?php echo $row['delivery_delivered_status']; ?></td>
-                    <td><?php echo $row['delivered_by_emp_name']; ?></td>
+                    <td><?php echo $row['received_time']; ?></td>
                     <td><?php echo $row['delivery_time']; ?></td>
                     <td>
                         <a class="approve_btn" href="config.php?approve=<?php echo $row['id']; ?>">Approve</a>
