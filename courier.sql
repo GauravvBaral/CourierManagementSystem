@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2019 at 09:06 AM
+-- Generation Time: November 11, 2024 at 09:06 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -66,6 +66,7 @@ ALTER TABLE `employee` AUTO_INCREMENT = 1;
 
 -- Table structure for table `orders`
 DROP TABLE IF EXISTS `orders`;
+
 CREATE TABLE `orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `customer_id` INT(11) NOT NULL,
@@ -84,13 +85,11 @@ CREATE TABLE `orders` (
   `received_time` DATETIME DEFAULT NULL,
   `delivery_time` DATETIME DEFAULT NULL,
   `time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `received_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Added foreign key for employee username
-  `delivered_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Added foreign key for employee username
+  `received_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Stores employee username permanently
+  `delivered_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Stores employee username permanently
   PRIMARY KEY (`id`),
   FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`customer_email`) REFERENCES `customers`(`email`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`received_by_emp_name`) REFERENCES `employee`(`username`) ON DELETE SET NULL ON UPDATE CASCADE,
-  FOREIGN KEY (`delivered_by_emp_name`) REFERENCES `employee`(`username`) ON DELETE SET NULL ON UPDATE CASCADE
+  FOREIGN KEY (`customer_email`) REFERENCES `customers`(`email`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Empty the `orders` table
@@ -99,9 +98,8 @@ TRUNCATE TABLE `orders`;
 -- Reset AUTO_INCREMENT for `orders`
 ALTER TABLE `orders` AUTO_INCREMENT = 1;
 
--- --------------------------------------------------------
-
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
