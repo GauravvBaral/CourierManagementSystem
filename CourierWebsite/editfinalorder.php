@@ -12,17 +12,18 @@ if ($db->connect_error) {
 
 // Delete order
 if (isset($_GET['del'])) {
-    $id = $_GET['del'];
+    $id = intval($_GET['del']);
     $stmt = $db->prepare("DELETE FROM orders WHERE id = ?");
     $stmt->bind_param("i", $id);
     $_SESSION['msg'] = $stmt->execute() ? "Order deleted successfully!" : "Error deleting order: " . $stmt->error;
+    $stmt->close();
     header('Location: editbooking.php');
     exit();
 }
 
 // Update order
 if (isset($_POST['update'])) {
-    $id = $_POST['id'];
+    $id = intval($_POST['id']);
     $name = trim($_POST['name']);
     $address = trim($_POST['address']);
     $phone = trim($_POST['phone']);
@@ -33,40 +34,50 @@ if (isset($_POST['update'])) {
     $weight = trim($_POST['weight']);
     $status = trim($_POST['status']);
 
-    if (!$name || !$address || !$phone || !$customer_email || !$toname || !$toaddress || !$tophone || !$weight || !$status) {
+    if (empty($name) || empty($address) || empty($phone) || empty($customer_email) ||
+        empty($toname) || empty($toaddress) || empty($tophone) || empty($weight) || empty($status)) {
         $_SESSION['msg'] = "All fields are required.";
         header('Location: editbooking.php');
         exit();
     }
 
-    // Get current status
-    $stmt = $db->prepare("SELECT delivery_received_status, delivery_delivered_status FROM orders WHERE id = ?");
+    // Get current order status
+    $stmt = $db->prepare("SELECT status, delivery_received_status, delivery_delivered_status FROM orders WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $stmt->bind_result($delivery_received_status, $delivery_delivered_status);
+    $stmt->bind_result($current_status, $delivery_received_status, $delivery_delivered_status);
     $stmt->fetch();
     $stmt->close();
 
-    // Get the current employee name from session
+    // Prevent receiving or delivering if status is "pending"
+    if ($current_status === "pending" && ($status === "received" || $status === "delivered")) {
+        $_SESSION['msg'] = "Cannot receive or deliver an order that is still pending.";
+        header('Location: editbooking.php');
+        exit();
+    }
+
+    // Get the current employee's username from session
     $emp_name = $_SESSION['username'] ?? null;
 
-    // Update timestamps and employee names
+    // Update timestamps and employee names based on status
     $received_by_emp_name = ($status === "received") ? $emp_name : null;
     $delivered_by_emp_name = ($status === "delivered") ? $emp_name : null;
 
-    // Update the order in the database
+    // Update order in database
     $stmt = $db->prepare("UPDATE orders SET 
         name = ?, address = ?, phone = ?, customer_email = ?, toname = ?, toaddress = ?, tophone = ?, 
         weight = ?, status = ?, received_by_emp_name = ?, delivered_by_emp_name = ?, 
-        received_time = IF(status = 'received', NOW(), received_time), 
-        delivery_time = IF(status = 'delivered', NOW(), delivery_time)
+        received_time = IF(? = 'received', NOW(), received_time), 
+        delivery_time = IF(? = 'delivered', NOW(), delivery_time)
         WHERE id = ?");
 
-    $stmt->bind_param("ssssssssssssi", 
+    $stmt->bind_param("sssssssssssssi", 
         $name, $address, $phone, $customer_email, $toname, $toaddress, $tophone,
-        $weight, $status, $received_by_emp_name, $delivered_by_emp_name, $id);
+        $weight, $status, $received_by_emp_name, $delivered_by_emp_name, 
+        $status, $status, $id);
 
     $_SESSION['msg'] = $stmt->execute() ? "Order updated successfully!" : "Error updating order: " . $stmt->error;
+    $stmt->close();
     header('Location: editbooking.php');
     exit();
 }
