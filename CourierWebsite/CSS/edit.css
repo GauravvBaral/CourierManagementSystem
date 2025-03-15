@@ -32,9 +32,9 @@ h2 {
 
 /* Table styling */
 table {
-    width: 74.8%;
+    width: 68.09%;
     border-collapse: collapse;
-    margin: 18.7px auto;
+    margin: 17.02px auto;
 }
 
 thead {
@@ -43,10 +43,10 @@ thead {
 }
 
 th, td {
-    padding: 11.2px;
+    padding: 10.19px;
     text-align: center;
     border: 1px solid #ddd;
-    font-size: 84.15%;
+    font-size: 76.6%;
 }
 
 tr:nth-child(even) {
@@ -62,10 +62,10 @@ tr:hover {
     background-color: #28a745;
     color: white;
     border: none;
-    padding: 9.35px 18.7px;
+    padding: 8.51px 17.02px;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 4.68px;
+    border-radius: 4.26px;
     transition: background-color 0.3s ease;
 }
 
@@ -75,22 +75,22 @@ tr:hover {
 
 /* Form input styling */
 .input-group {
-    margin-bottom: 14px;
+    margin-bottom: 12.74px;
     text-align: left;
 }
 
 .input-group label {
     font-weight: bold;
     display: block;
-    margin-bottom: 4.68px;
+    margin-bottom: 4.26px;
 }
 
 .input-group input, .input-group select {
     width: 100%;
-    padding: 9.35px;
-    border-radius: 4.68px;
+    padding: 8.51px;
+    border-radius: 4.26px;
     border: 1px solid #ccc;
-    font-size: 13.1px;
+    font-size: 11.91px;
     box-sizing: border-box;
 }
 
@@ -101,25 +101,25 @@ tr:hover {
 
 /* Styling for actions column (buttons) */
 a.edit_btn {
-    padding: 7.5px 15px;
+    padding: 6.81px 13.62px;
     background-color: #007bff;
     color: white;
-    border-radius: 4.68px;
+    border-radius: 4.26px;
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 4.68px;
+    margin: 4.26px;
 }
 
 a.edit_btn2 {
-    padding: 7.5px 15px;
+    padding: 6.81px 13.62px;
     background-color: #08b140;
     color: white;
-    border-radius: 4.68px;
+    border-radius: 4.26px;
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 4.68px;
+    margin: 4.26px;
 }
 
 a.edit_btn:hover {
@@ -137,34 +137,34 @@ a.del_btn:hover {
 /* Editbox container styling */
 .editbox {
     background-color: white;
-    width: 65.45%;
-    margin: 18.7px auto;
-    padding: 28.05px;
-    border-radius: 9.35px;
-    box-shadow: 0 0 9.7px rgba(0, 0, 0, 0.1);
+    width: 59.58%;
+    margin: 17.02px auto;
+    padding: 25.56px;
+    border-radius: 8.51px;
+    box-shadow: 0 0 8.84px rgba(0, 0, 0, 0.1);
 }
 
 /* Editbox form title styling */
 .editbox h3 {
     text-align: center;
-    margin-bottom: 19px;
+    margin-bottom: 17.29px;
     color: #6daf7d;
 }
 
 /* Input fields and button styling inside the editbox */
 .editbox .input-group {
-    margin-bottom: 18.7px;
+    margin-bottom: 17.02px;
 }
 
 .editbox .btn {
     width: 100%;
-    padding: 11.2px;
+    padding: 10.19px;
     background-color: #28a745;
     color: white;
     border: none;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 4.68px;
+    border-radius: 4.26px;
     transition: background-color 0.3s ease;
 }
 
