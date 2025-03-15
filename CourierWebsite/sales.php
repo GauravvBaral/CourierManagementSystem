@@ -1,8 +1,6 @@
 <?php
-// session_start(); // Start the session at the very beginning
 include('config.php');
 
-// Fetch all orders for display
 $results = mysqli_query($db, "SELECT * FROM orders");
 ?>
 
@@ -19,7 +17,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
         <div class="msg">
             <?php
             echo $_SESSION['msg'];
-            unset($_SESSION['msg']); // Clear the message after displaying
+            unset($_SESSION['msg']);
             ?>
         </div>
     <?php endif ?>
@@ -66,6 +64,9 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                     <td><?php echo $row['delivery_time']; ?></td>
                     <td>
                         <a class="approve_btn" href="config.php?approve=<?php echo $row['id']; ?>">Approve</a>
+                    </td>
+                    <td>
+                        <a class="deny_btn" href="config.php?denied=<?php echo $row['id']; ?>">Deny</a>
                     </td>
                     <td>
                         <a class="del_btn" href="config.php?del=<?php echo $row['id']; ?>">Delete</a>
