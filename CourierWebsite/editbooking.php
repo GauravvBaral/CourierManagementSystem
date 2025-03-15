@@ -18,51 +18,53 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
     $action = $_GET['action'];
 
     // Fetch current order details
-    $stmt = $db->prepare("SELECT delivery_received_status, delivery_delivered_status FROM orders WHERE id = ?");
+    $stmt = $db->prepare("SELECT status, delivery_received_status, delivery_delivered_status FROM orders WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
-    $stmt->bind_result($delivery_received_status, $delivery_delivered_status);
+    $stmt->bind_result($status, $delivery_received_status, $delivery_delivered_status);
     $stmt->fetch();
     $stmt->close();
 
     // Get employee's username from session
     $emp_name_from_session = $_SESSION['username'] ?? null;
 
-    if ($action === 'receive') {
-        if ($delivery_received_status === 'received') {
-            $_SESSION['msg'] = "Order already received.";
-        } else {
-            // Update order for receiving
-            $stmt = $db->prepare("UPDATE orders SET 
-                delivery_received_status = 'received', 
-                received_time = NOW(),  
-                received_by_emp_name = ? 
-                WHERE id = ?");
-            $stmt->bind_param("si",  $emp_name_from_session, $id);
-            if ($stmt->execute()) {
-                $_SESSION['msg'] = "Order received successfully!";
+    if ($status === 'pending') {
+        $_SESSION['msg'] = "Cannot receive or deliver an order with 'pending' status.";
+    } else {
+        if ($action === 'receive') {
+            if ($delivery_received_status === 'received') {
+                $_SESSION['msg'] = "Order already received. Can't receive more than once.";
             } else {
-                $_SESSION['msg'] = "Error updating order: " . $stmt->error;
+                $stmt = $db->prepare("UPDATE orders SET 
+                    delivery_received_status = 'received', 
+                    received_time = NOW(),  
+                    received_by_emp_name = ? 
+                    WHERE id = ?");
+                $stmt->bind_param("si", $emp_name_from_session, $id);
+                if ($stmt->execute()) {
+                    $_SESSION['msg'] = "Order received successfully!";
+                } else {
+                    $_SESSION['msg'] = "Error updating order: " . $stmt->error;
+                }
+                $stmt->close();
             }
-            $stmt->close();
-        }
-    } elseif ($action === 'deliver') {
-        if ($delivery_delivered_status === 'delivered') {
-            $_SESSION['msg'] = "Order already delivered.";
-        } else {
-            // Update order for delivering
-            $stmt = $db->prepare("UPDATE orders SET 
-                delivery_delivered_status = 'delivered', 
-                delivery_time = NOW(), 
-                delivered_by_emp_name = ? 
-                WHERE id = ?");
-            $stmt->bind_param("si", $emp_name_from_session, $id);
-            if ($stmt->execute()) {
-                $_SESSION['msg'] = "Order delivered successfully!";
+        } elseif ($action === 'deliver') {
+            if ($delivery_delivered_status === 'delivered') {
+                $_SESSION['msg'] = "Order already delivered. Can't deliver more than once.";
             } else {
-                $_SESSION['msg'] = "Error updating order: " . $stmt->error;
+                $stmt = $db->prepare("UPDATE orders SET 
+                    delivery_delivered_status = 'delivered', 
+                    delivery_time = NOW(), 
+                    delivered_by_emp_name = ? 
+                    WHERE id = ?");
+                $stmt->bind_param("si", $emp_name_from_session, $id);
+                if ($stmt->execute()) {
+                    $_SESSION['msg'] = "Order delivered successfully!";
+                } else {
+                    $_SESSION['msg'] = "Error updating order: " . $stmt->error;
+                }
+                $stmt->close();
             }
-            $stmt->close();
         }
     }
 
@@ -104,6 +106,8 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                 <th>Status</th>
                 <th>Parcel-Receive-Status</th>
                 <th>Parcel-Deliver-Status</th>
+                <th>Received By</th>
+                <th>Delivered By</th>
                 <th>Received Time</th>
                 <th>Delivery Time</th>
                 <th colspan="2">Actions</th>
@@ -124,10 +128,24 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                     <td><?= htmlspecialchars($row['status']); ?></td>
                     <td><?= htmlspecialchars($row['delivery_received_status']); ?></td>
                     <td><?= htmlspecialchars($row['delivery_delivered_status']); ?></td>
+                    <td><?= htmlspecialchars($row['received_by_emp_name']); ?></td>
+                    <td><?= htmlspecialchars($row['delivered_by_emp_name']); ?></td>
                     <td><?= htmlspecialchars($row['received_time']); ?></td>
                     <td><?= htmlspecialchars($row['delivery_time']); ?></td>
-                    <td><a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a></td>
-                    <td><a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a></td>
+                    <td>
+                        <?php if ($row['status'] !== 'pending'): ?>
+                            <a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a>
+                        <?php else: ?>
+                            <span style="color: gray;">Not Allowed</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if ($row['status'] !== 'pending'): ?>
+                            <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
+                        <?php else: ?>
+                            <span style="color: gray;">Not Allowed</span>
+                        <?php endif; ?>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>
@@ -138,3 +156,5 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
     </div>
 </body>
 </html>
+
+
