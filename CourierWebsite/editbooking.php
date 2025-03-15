@@ -138,14 +138,14 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                         <?php if ($row['status'] !== 'pending' && $row['status'] !== 'denied'): ?>
                             <a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a>
                         <?php else: ?>
-                            <span style="color: gray;">Not Allowed</span>
+                            <span style="color: black;">Receiving Disabled</span>
                         <?php endif; ?>
                     </td>
                     <td>
                         <?php if ($row['status'] !== 'pending' && $row['status'] !== 'denied'): ?>
                             <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
                         <?php else: ?>
-                            <span style="color: gray;">Not Allowed</span>
+                            <span style="color: black;">Delivery Disabled</span>
                         <?php endif; ?>
                     </td>
                 </tr>
