@@ -1,23 +1,19 @@
 <?php 
-// Start the session if it's not already active
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include('editfinalorder.php'); // Ensure database connection is established
+include('editfinalorder.php'); 
 
-// Fetch all records from the database
 $results = mysqli_query($db, "SELECT * FROM orders");
 if (!$results) {
     die("Query failed: " . mysqli_error($db));
 }
 
-// Handle status updates for Receive and Deliver
 if (isset($_GET['edit']) && isset($_GET['action'])) {
     $id = intval($_GET['edit']);
     $action = $_GET['action'];
 
-    // Fetch current order details
     $stmt = $db->prepare("SELECT status, delivery_received_status, delivery_delivered_status FROM orders WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -25,12 +21,11 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
     $stmt->fetch();
     $stmt->close();
 
-    // Get employee's username from session
     $emp_name_from_session = $_SESSION['username'] ?? null;
 
     if ($status === 'pending') {
         $_SESSION['msg'] = "Cannot receive or deliver an order with 'pending' status.";
-    } elseif ($status === 'denied') {
+    } elseif ($status === 'declied') {
         $_SESSION['msg'] = "Can't receive or deliver if the order is denied.";
     } else {
         if ($action === 'receive') {
@@ -135,14 +130,14 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                     <td><?= htmlspecialchars($row['received_time']); ?></td>
                     <td><?= htmlspecialchars($row['delivery_time']); ?></td>
                     <td>
-                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'denied'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined'): ?>
                             <a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a>
                         <?php else: ?>
                             <span style="color: black;">Receiving Disabled</span>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'denied'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined'): ?>
                             <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
                         <?php else: ?>
                             <span style="color: black;">Delivery Disabled</span>
