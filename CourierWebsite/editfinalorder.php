@@ -1,5 +1,4 @@
 <?php
-// Start session if not already active
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -10,7 +9,6 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
-// Delete order
 if (isset($_GET['del'])) {
     $id = intval($_GET['del']);
     $stmt = $db->prepare("DELETE FROM orders WHERE id = ?");
@@ -21,7 +19,6 @@ if (isset($_GET['del'])) {
     exit();
 }
 
-// Update order
 if (isset($_POST['update'])) {
     $id = intval($_POST['id']);
     $name = trim($_POST['name']);
@@ -41,7 +38,6 @@ if (isset($_POST['update'])) {
         exit();
     }
 
-    // Get current order status
     $stmt = $db->prepare("SELECT status, delivery_received_status, delivery_delivered_status FROM orders WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -49,14 +45,11 @@ if (isset($_POST['update'])) {
     $stmt->fetch();
     $stmt->close();
     
-    // Get the current employee's username from session
     $emp_name = $_SESSION['username'] ?? null;
 
-    // Update timestamps and employee names based on status
     $received_by_emp_name = ($status === "received") ? $emp_name : null;
     $delivered_by_emp_name = ($status === "delivered") ? $emp_name : null;
 
-    // Update order in database
     $stmt = $db->prepare("UPDATE orders SET 
         name = ?, address = ?, phone = ?, customer_email = ?, toname = ?, toaddress = ?, tophone = ?, 
         weight = ?, status = ?, received_by_emp_name = ?, delivered_by_emp_name = ?, 
