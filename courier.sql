@@ -79,7 +79,7 @@ CREATE TABLE `orders` (
   `tophone` BIGINT(20) NOT NULL CHECK (`tophone` > 0),
   `weight` VARCHAR(100) NOT NULL,
   `price` INT(11) NOT NULL DEFAULT 0 CHECK (`price` >= 0),
-  `status` ENUM('approved', 'pending') NOT NULL DEFAULT 'pending',
+  `status` ENUM('approved', 'pending','declined') NOT NULL DEFAULT 'pending',
   `delivery_received_status` ENUM('received', 'not received') NOT NULL DEFAULT 'not received',
   `delivery_delivered_status` ENUM('delivered', 'not delivered') NOT NULL DEFAULT 'not delivered',
   `received_time` DATETIME DEFAULT NULL,
