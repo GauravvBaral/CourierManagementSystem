@@ -66,7 +66,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                         <a class="approve_btn" href="config.php?approve=<?php echo $row['id']; ?>">Approve</a>
                     </td>
                     <td>
-                        <a class="deny_btn" href="config.php?denied=<?php echo $row['id']; ?>">Deny</a>
+                        <a class="deny_btn" href="config.php?declined=<?php echo $row['id']; ?>">Decline</a>
                     </td>
                     <td>
                         <a class="del_btn" href="config.php?del=<?php echo $row['id']; ?>">Delete</a>
