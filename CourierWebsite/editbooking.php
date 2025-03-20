@@ -130,14 +130,14 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                     <td><?= htmlspecialchars($row['received_time']); ?></td>
                     <td><?= htmlspecialchars($row['delivery_time']); ?></td>
                     <td>
-                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined' && $row['status'] !== 'cancelled'): ?>
                             <a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a>
                         <?php else: ?>
                             <span style="color: black;">Receiving Disabled</span>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined' && $row['status'] !== 'cancelled'): ?>
                             <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
                         <?php else: ?>
                             <span style="color: black;">Delivery Disabled</span>
