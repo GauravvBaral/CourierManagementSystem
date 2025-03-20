@@ -175,3 +175,9 @@ form .input-group {
     background-color: rgb(200, 33, 33);
     transform: scale(1.1);
 }
+.approve_btn:disabled, .deny_btn:disabled {
+    color: black;
+    font-weight: bold;
+    background-color: grey;
+    cursor: not-allowed;
+}
