@@ -44,17 +44,22 @@ $courier->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="CSS/admindash.css">
 </head>
+
 <body>
     <div class="dashboard">
         <h1>Admin Dashboard</h1>
         <div class="stats">
         <div class="stat">
+                <button onclick="location.href='employee.html'">Add Employee</button>
+            </div>
+            <div class="stat">
                 <h2><?php echo $orderCount; ?></h2>
                 <p>Orders</p>
                 <button onclick="location.href='sales.php'">View Orders</button>
@@ -77,15 +82,16 @@ $courier->close();
             <div class="stat">
                 <h2><?php echo $receivedOrders; ?></h2>
                 <p>Received Orders</p>
+            </div>
+            <div class="stat">
+                <h2><?php echo $deliveredOrders; ?></h2>
+                <p>Delivered Orders</p>
+            </div>
         </div>
-        <div class="stat">
-            <h2><?php echo $deliveredOrders; ?></h2>
-            <p>Delivered Orders</p>
-    </div>
-</div>
-<div style="text-align: center; margin-top: 20px;">
-<button onclick="window.location.href='index.html'" class="hover-button">
-LogOut
-</button>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="window.location.href='index.html'" class="hover-button">
+                LogOut
+            </button>
 </body>
+
 </html>
