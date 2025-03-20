@@ -34,6 +34,32 @@ $orderResult = $stmt->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Orders</title>
     <link rel="stylesheet" href="CSS/orderview.css">
+    <script>
+        function cancelOrder(orderId) {
+            if (!confirm("Are you sure you want to cancel this order?")) {
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("order_id", orderId);
+
+            fetch("cancel.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === "success") {
+                    document.getElementById("status-" + orderId).innerText = "cancelled";
+                    document.getElementById("cancel-btn-" + orderId).disabled = true;
+                    alert("Order cancelled successfully!");
+                } else {
+                    alert("Failed to cancel order: " + data);
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
 </head>
 
 <body>
@@ -57,6 +83,7 @@ $orderResult = $stmt->get_result();
                     <th>Received Time</th>
                     <th>Delivered by</th>
                     <th>Delivery Time</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,18 +98,25 @@ $orderResult = $stmt->get_result();
                             <td><?php echo htmlspecialchars($row['tophone']); ?></td>
                             <td><?php echo htmlspecialchars($row['weight']); ?></td>
                             <td><?php echo htmlspecialchars($row['time']); ?></td>
-                            <td><?php echo htmlspecialchars($row['status']); ?></td>
+                            <td id="status-<?php echo $row['id']; ?>"><?php echo htmlspecialchars($row['status']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivery_received_status']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivery_delivered_status']); ?></td>
                             <td><?php echo htmlspecialchars($row['received_by_emp_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['received_time']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivered_by_emp_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivery_time']); ?></td>
+                            <td>
+                                <?php if ($row['status'] !== "cancelled"): ?>
+                                    <button class="cancel-btn-<?php echo $row['id']; ?>" onclick="cancelOrder(<?php echo $row['id']; ?>)">Cancel</button>
+                                <?php else: ?>
+                                    <button class="cancel-button" disabled style="color:black">Cancelled</button>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="7" style="text-align: center;">No orders found for this customer.</td>
+                        <td colspan="16" style="text-align: center;">No orders found for this customer.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
