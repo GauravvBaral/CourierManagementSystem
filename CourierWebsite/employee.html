@@ -8,25 +8,28 @@
     <link rel="stylesheet" href="CSS/employee.css">
     <script>
         function validateForm() {
+            const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirm_password').value;
             const phone = document.getElementById('phone').value;
 
-            // Email validation using regex
+            if (!/^[a-zA-Z]+ [a-zA-Z]+$/.test(name)) {
+                alert("Name must contain at least a first name and a surname!");
+                return false;
+            }
+
             const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!emailPattern.test(email)) {
                 alert("Invalid email format! Please enter a valid email address.");
                 return false;
             }
 
-            // Password match validation
             if (password !== confirmPassword) {
                 alert("Passwords do not match!");
                 return false;
             }
 
-            // Phone number validation
             if (phone.length !== 10 || isNaN(phone)) {
                 alert("Phone number must be 10 digits!");
                 return false;
@@ -48,7 +51,7 @@
             <tr>
                 <th class="employee">Employee Name:</th>
                 <td>
-                    <input type="text" name="username" class="text" placeholder="Enter your Name" required>
+                    <input type="text" name="username" class="text" id="name" placeholder="Enter your Name" required>
                 </td>
             </tr>
             <tr>
@@ -123,17 +126,8 @@
                 </td>
             </tr>
         </form>
-        <tr>
-            <td align="center" colspan="2">
-                <div class="login-section">
-                    <a href="employeelog.php">
-                        <span style="color: blue;">Already Registered? Log In</span>
-                    </a>
-                </div>
-            </td>
-        </tr>
     </table>
-    <a href="index.html" class="button1">
+    <a href="admindash.php" class="button1">
         <input type="button" value="GO BACK" class="button">
     </a>
 </body>
