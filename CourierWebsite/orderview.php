@@ -43,6 +43,13 @@ $orderResult = $stmt->get_result();
             let formData = new FormData();
             formData.append("order_id", orderId);
 
+            // Disable the button immediately to prevent double clicks
+            let cancelBtn = document.getElementById("cancel-btn-" + orderId);
+            if (cancelBtn) {
+                cancelBtn.disabled = true;
+                cancelBtn.innerText = "Cancelling...";
+            }
+
             fetch("cancel.php", {
                 method: "POST",
                 body: formData
@@ -50,11 +57,14 @@ $orderResult = $stmt->get_result();
             .then(response => response.text())
             .then(data => {
                 if (data.trim() === "success") {
-                    document.getElementById("status-" + orderId).innerText = "cancelled";
-                    document.getElementById("cancel-btn-" + orderId).disabled = true;
                     alert("Order cancelled successfully!");
+                    setTimeout(() => location.reload(), 1000); // Reload after 1 second
                 } else {
                     alert("Failed to cancel order: " + data);
+                    if (cancelBtn) {
+                        cancelBtn.disabled = false;
+                        cancelBtn.innerText = "Cancel";
+                    }
                 }
             })
             .catch(error => console.error("Error:", error));
@@ -106,8 +116,8 @@ $orderResult = $stmt->get_result();
                             <td><?php echo htmlspecialchars($row['delivered_by_emp_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivery_time']); ?></td>
                             <td>
-                                <?php if ($row['status'] !== "cancelled" && $row['delivery_received_status']!=="received"): ?>
-                                    <button class="cancel-btn-<?php echo $row['id']; ?>" onclick="cancelOrder(<?php echo $row['id']; ?>)">Cancel</button>
+                                <?php if ($row['status'] !== "cancelled" && $row['delivery_received_status'] !== "received"): ?>
+                                    <button id="cancel-btn-<?php echo $row['id']; ?>" onclick="cancelOrder(<?php echo $row['id']; ?>)">Cancel</button>
                                 <?php else: ?>
                                     <button class="cancel-button" disabled style="color:black">Cancel Disabled</button>
                                 <?php endif; ?>
