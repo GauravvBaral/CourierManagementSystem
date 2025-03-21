@@ -106,10 +106,10 @@ $orderResult = $stmt->get_result();
                             <td><?php echo htmlspecialchars($row['delivered_by_emp_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['delivery_time']); ?></td>
                             <td>
-                                <?php if ($row['status'] !== "cancelled"): ?>
+                                <?php if ($row['status'] !== "cancelled" && $row['delivery_received_status']!=="received"): ?>
                                     <button class="cancel-btn-<?php echo $row['id']; ?>" onclick="cancelOrder(<?php echo $row['id']; ?>)">Cancel</button>
                                 <?php else: ?>
-                                    <button class="cancel-button" disabled style="color:black">Cancelled</button>
+                                    <button class="cancel-button" disabled style="color:black">Cancel Disabled</button>
                                 <?php endif; ?>
                             </td>
                         </tr>
