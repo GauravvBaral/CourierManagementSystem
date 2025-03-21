@@ -67,12 +67,12 @@ $courier->close();
             <div class="stat">
                 <h2><?php echo $employeeCount; ?></h2>
                 <p>Employees</p>
-                <button onclick="location.href='employeeview.php'">View </button>
+                <button onclick="location.href='employeeview.php'">View Employees</button>
             </div>
             <div class="stat">
                 <h2><?php echo $customerCount; ?></h2>
                 <p>Customers</p>
-                <button onclick="location.href='customerview.php'">View</button>
+                <button onclick="location.href='customerview.php'">View Customer</button>
             </div>
 
             <div class="stat">
