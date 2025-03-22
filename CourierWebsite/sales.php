@@ -70,7 +70,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
                 <?php endif; ?>
             </td>
             <td>
-                <?php if ($row['status'] !== "cancelled"): ?>
+                <?php if ($row['status'] !== "cancelled" && $row['delivery_received_status'] !== "received"): ?>
                     <a class="deny_btn" href="config.php?declined=<?php echo $row['id']; ?>">Decline</a>
                 <?php else: ?>
                     <button class="deny_btn" disabled>Decline</button>
@@ -88,7 +88,5 @@ $results = mysqli_query($db, "SELECT * FROM orders");
             Go Back
         </button>
     </div>
-
 </body>
-
 </html>
