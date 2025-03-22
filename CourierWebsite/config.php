@@ -30,7 +30,7 @@ if (isset($_GET['approve'])) {
         $row = mysqli_fetch_assoc($result);
         $current_status = $row['status'];
 
-        if ($current_status == 'Approved') {
+        if ($current_status == 'approved') {
             $_SESSION['msg'] = "Order already approved, can't approve more.";
         } else {
             $update_query = "UPDATE orders SET status='Approved' WHERE id = $id";
