@@ -42,16 +42,16 @@
 
 <body>
     <header>
-        <h2>WELCOME EMPLOYEE!</h2>
+        <h2>WELCOME ADMINSTRATOR!</h2>
     </header>
     <br>
     <table class="table" align="center">
-        <caption>EMPLOYEE REGISTER</caption>
+        <caption>REGISTER YOUR EMPLOYEE HERE</caption>
         <form action="process2.php" method="POST" onsubmit="return validateForm()">
             <tr>
                 <th class="employee">Employee Name:</th>
                 <td>
-                    <input type="text" name="username" class="text" id="name" placeholder="Enter your Name" required>
+                    <input type="text" name="username" class="text" id="name" placeholder="Enter Employee Name" required>
                 </td>
             </tr>
             <tr>
@@ -91,13 +91,13 @@
             <tr>
                 <th class="employee">Employee Address:</th>
                 <td>
-                    <input type="text" name="address" class="text" placeholder="Enter your Address" required>
+                    <input type="text" name="address" class="text" placeholder="Enter Employee Address" required>
                 </td>
             </tr>
             <tr>
                 <th class="employee">Employee Phone:</th>
                 <td>
-                    <input type="tel" name="phone" id="phone" class="text" placeholder="Enter your Phone Num"
+                    <input type="tel" name="phone" id="phone" class="text" placeholder="Enter Employee Phone Number"
                         pattern="[0-9]{10}" required maxlength="10"
                         oninput="this.value = this.value.replace(/[^0-9]/g, ''); if (this.value.length > 10) this.value = this.value.slice(0, 10);">
                 </td>
@@ -105,19 +105,19 @@
             <tr>
                 <th class="employee">Employee Email:</th>
                 <td>
-                    <input type="email" name="email" id="email" class="text" placeholder="Enter your Email" required>
+                    <input type="email" name="email" id="email" class="text" placeholder="Enter Employee Email" required>
                 </td>
             </tr>
             <tr>
                 <th class="employee">Employee Password:</th>
                 <td>
-                    <input type="password" name="password" id="password" class="text" placeholder="Enter your Password" minlength="8" required>
+                    <input type="password" name="password" id="password" class="text" placeholder="Enter Employee Password" minlength="8" required>
                 </td>
             </tr>
             <tr>
                 <th class="employee">Confirm Password:</th>
                 <td>
-                    <input type="password" name="confirm_password" id="confirm_password" class="text" placeholder="Confirm your Password" minlength="8" required>
+                    <input type="password" name="confirm_password" id="confirm_password" class="text" placeholder="Confirm Employee Password" minlength="8" required>
                 </td>
             </tr>
             <tr>
