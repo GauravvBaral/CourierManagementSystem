@@ -26,29 +26,29 @@ $edit_state = false; // Track if we are in edit mode
 
 // If save button is clicked
 if (isset($_POST['save'])) {
-    $name = mysqli_real_escape_string($db, $_POST['name']);
-    $address = mysqli_real_escape_string($db, $_POST['address']);
-    $phone = mysqli_real_escape_string($db, $_POST['phone']);
     $toname = mysqli_real_escape_string($db, $_POST['toname']);
     $toaddress = mysqli_real_escape_string($db, $_POST['toaddress']);
     $tophone = mysqli_real_escape_string($db, $_POST['tophone']);
     $weight = mysqli_real_escape_string($db, $_POST['weight']);
 
     // Validate phone numbers
-    if ($phone <= 0 || $tophone <= 0) {
+    if ($tophone <= 0) {
         die("Error: Phone numbers must be greater than 0.");
     }
 
     // Get customer ID and email from database
-    $result = mysqli_query($db, "SELECT id, email FROM customers WHERE email = '$email'");
+    $result = mysqli_query($db, "SELECT id, email, username, address, phone FROM customers WHERE email = '$email'");
     if (mysqli_num_rows($result) > 0) {
         $customer = mysqli_fetch_assoc($result);
         $customer_id = $customer['id'];
         $customer_email = $customer['email'];
+        $customer_name = $customer['username'];
+        $customer_address = $customer['address'];
+        $customer_phone = $customer['phone'];
 
         // Insert order with customer_id and customer_email
-        $query = "INSERT INTO orders (customer_id, customer_email, name, address, phone, toname, toaddress, tophone, weight, price) 
-                  VALUES ('$customer_id', '$customer_email', '$name', '$address', '$phone', '$toname', '$toaddress', '$tophone', '$weight', 0)";
+        $query = "INSERT INTO orders (customer_id, customer_email, customer_name,customer_address, customer_phone, toname, toaddress, tophone, weight, price) 
+                  VALUES ('$customer_id', '$customer_email', '$customer_name', '$customer_address', '$customer_phone', '$toname', '$toaddress', '$tophone', '$weight', 0)";
 
         if (mysqli_query($db, $query)) {
             $_SESSION['msg'] = "ORDER PLACED SUCCESSFULLY!";
@@ -65,9 +65,9 @@ if (isset($_POST['save'])) {
 // If updating an order (edit mode)
 if (isset($_POST['update'])) {
     $order_id = $_POST['order_id'];  // Assuming order_id is passed for update
-    $name = mysqli_real_escape_string($db, $_POST['name']);
-    $address = mysqli_real_escape_string($db, $_POST['address']);
-    $phone = mysqli_real_escape_string($db, $_POST['phone']);
+    $name = mysqli_real_escape_string($db, $_POST['customer_name']);
+    $address = mysqli_real_escape_string($db, $_POST['customer_address']);
+    $phone = mysqli_real_escape_string($db, $_POST['customer_phone']);
     $toname = mysqli_real_escape_string($db, $_POST['toname']);
     $toaddress = mysqli_real_escape_string($db, $_POST['toaddress']);
     $tophone = mysqli_real_escape_string($db, $_POST['tophone']);
@@ -75,9 +75,9 @@ if (isset($_POST['update'])) {
 
     // Update query
     $update_query = "UPDATE orders SET 
-                        name='$name', 
-                        address='$address', 
-                        phone='$phone', 
+                        name='$customer_name', 
+                        address='$customer_address', 
+                        phone='$customer_phone', 
                         toname='$toname', 
                         toaddress='$toaddress', 
                         tophone='$tophone', 
