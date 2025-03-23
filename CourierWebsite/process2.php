@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 echo $message;
 ?>
     <a href="employeelog.php" class="button1">Log In</a>
-    <a href="index.html" class="button2">Go Back</a>
+    <a href="admindash.php" class="button2">Go Back</a>
 </div>
 </body>
 </html>
