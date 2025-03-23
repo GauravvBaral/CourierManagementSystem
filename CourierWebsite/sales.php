@@ -48,9 +48,9 @@ $results = mysqli_query($db, "SELECT * FROM orders");
         <tbody>
     <?php while ($row = mysqli_fetch_array($results)) { ?>
         <tr>
-            <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['address']; ?></td>
-            <td><?php echo $row['phone']; ?></td>
+            <td><?php echo $row['customer_name']; ?></td>
+            <td><?php echo $row['customer_address']; ?></td>
+            <td><?php echo $row['customer_phone']; ?></td>
             <td><?php echo $row['customer_email']; ?></td>
             <td><?php echo $row['toname']; ?></td>
             <td><?php echo $row['toaddress']; ?></td>
