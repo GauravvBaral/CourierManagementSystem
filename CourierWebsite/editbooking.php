@@ -113,9 +113,9 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
         <tbody>
             <?php while ($row = mysqli_fetch_assoc($results)) { ?>
                 <tr>
-                    <td><?= htmlspecialchars($row['name']); ?></td>
-                    <td><?= htmlspecialchars($row['address']); ?></td>
-                    <td><?= htmlspecialchars($row['phone']); ?></td>
+                    <td><?= htmlspecialchars($row['customer_name']); ?></td>
+                    <td><?= htmlspecialchars($row['customer_address']); ?></td>
+                    <td><?= htmlspecialchars($row['customer_phone']); ?></td>
                     <td><?= htmlspecialchars($row['customer_email']); ?></td>
                     <td><?= htmlspecialchars($row['toname']); ?></td>
                     <td><?= htmlspecialchars($row['toaddress']); ?></td>
