@@ -1,9 +1,9 @@
 <?php
 session_start(); 
 
-$name = "";
-$address = "";
-$phone = "";
+$customer_name = "";
+$customer_address = "";
+$customer_phone = "";
 $toname = "";
 $toaddress = "";
 $tophone = "";
@@ -77,9 +77,9 @@ if (isset($_GET['declined'])) {
 }
 
 if (isset($_POST['save'])) {
-    $name = mysqli_real_escape_string($db, $_POST['name']);
-    $address = mysqli_real_escape_string($db, $_POST['address']);
-    $phone = mysqli_real_escape_string($db, $_POST['phone']);
+    $name = mysqli_real_escape_string($db, $_POST['customer_name']);
+    $address = mysqli_real_escape_string($db, $_POST['customer_address']);
+    $phone = mysqli_real_escape_string($db, $_POST['customer_phone']);
     $toname = mysqli_real_escape_string($db, $_POST['toname']);
     $toaddress = mysqli_real_escape_string($db, $_POST['toaddress']);
     $tophone = mysqli_real_escape_string($db, $_POST['tophone']);
@@ -92,7 +92,7 @@ if (isset($_POST['save'])) {
     $delivery_time = "";
 
     $query = "INSERT INTO orders (name, address, phone, toname, toaddress, tophone, weight, status, time, delivery_received_status, delivery_delivered_status, received_time, delivery_time) 
-              VALUES ('$name', '$address', '$phone', '$toname', '$toaddress', '$tophone', '$weight', '$status', '$time', '$delivery_received_status', '$delivery_delivered_status', '$received_time', '$delivery_time')";
+              VALUES ('$customer_name', '$customer_address', '$customer_phone', '$toname', '$toaddress', '$tophone', '$weight', '$status', '$time', '$delivery_received_status', '$delivery_delivered_status', '$received_time', '$delivery_time')";
     if (mysqli_query($db, $query)) {
         $_SESSION['msg'] = "Customer Data Saved Successfully";
     } else {
@@ -103,9 +103,9 @@ if (isset($_POST['save'])) {
 }
 
 if (isset($_POST['update'])) {
-    $name = mysqli_real_escape_string($db, $_POST['name']);
-    $address = mysqli_real_escape_string($db, $_POST['address']);
-    $phone = mysqli_real_escape_string($db, $_POST['phone']);
+    $name = mysqli_real_escape_string($db, $_POST['customer_name']);
+    $address = mysqli_real_escape_string($db, $_POST['customer_address']);
+    $phone = mysqli_real_escape_string($db, $_POST['customer_phone']);
     $toname = mysqli_real_escape_string($db, $_POST['toname']);
     $toaddress = mysqli_real_escape_string($db, $_POST['toaddress']);
     $tophone = mysqli_real_escape_string($db, $_POST['tophone']);
@@ -115,7 +115,7 @@ if (isset($_POST['update'])) {
     $time = date('Y-m-d H:i:s');
 
     $sql = "UPDATE orders 
-            SET name='$name', address='$address', phone='$phone', 
+            SET name='$customer_name', address='$customer_address', phone='$customer_phone', 
                 toname='$toname', toaddress='$toaddress', tophone='$tophone', 
                 weight='$weight', status='$status', time='$time' 
             WHERE id = $id";
