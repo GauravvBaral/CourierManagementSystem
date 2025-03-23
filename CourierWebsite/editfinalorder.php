@@ -31,7 +31,7 @@ if (isset($_POST['update'])) {
     $weight = trim($_POST['weight']);
     $status = trim($_POST['status']);
 
-    if (empty($name) || empty($address) || empty($phone) || empty($customer_email) ||
+    if (empty($customer_name) || empty($customer_address) || empty($customer_phone) || empty($customer_email) ||
         empty($toname) || empty($toaddress) || empty($tophone) || empty($weight) || empty($status)) {
         $_SESSION['msg'] = "All fields are required.";
         header('Location: editbooking.php');
@@ -51,14 +51,14 @@ if (isset($_POST['update'])) {
     $delivered_by_emp_name = ($status === "delivered") ? $emp_name : null;
 
     $stmt = $db->prepare("UPDATE orders SET 
-        name = ?, address = ?, phone = ?, customer_email = ?, toname = ?, toaddress = ?, tophone = ?, 
+        customer_name = ?, customer_address = ?, customer_phone = ?, customer_email = ?, toname = ?, toaddress = ?, tophone = ?, 
         weight = ?, status = ?, received_by_emp_name = ?, delivered_by_emp_name = ?, 
         received_time = IF(? = 'received', NOW(), received_time), 
         delivery_time = IF(? = 'delivered', NOW(), delivery_time)
         WHERE id = ?");
 
     $stmt->bind_param("sssssssssssssi", 
-        $name, $address, $phone, $customer_email, $toname, $toaddress, $tophone,
+        $customer_name, $customer_address, $phone, $customer_email, $toname, $toaddress, $tophone,
         $weight, $status, $received_by_emp_name, $delivered_by_emp_name, 
         $status, $status, $id);
 
