@@ -137,7 +137,7 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined' && $row['status'] !== 'cancelled'): ?>
+                        <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined' && $row['status'] !== 'cancelled' && $row['delivery_received_status'] !== 'not received'): ?>
                             <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
                         <?php else: ?>
                             <span style="color: black;">Delivery Disabled</span>
