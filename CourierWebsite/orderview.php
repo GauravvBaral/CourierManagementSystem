@@ -100,9 +100,9 @@ $orderResult = $stmt->get_result();
                 <?php if ($orderResult->num_rows > 0): ?>
                     <?php while ($row = $orderResult->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($row['name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['address']); ?></td>
-                            <td><?php echo htmlspecialchars($row['phone']); ?></td>
+                            <td><?php echo htmlspecialchars($row['customer_name']); ?></td>
+                            <td><?php echo htmlspecialchars($row['customer_address']); ?></td>
+                            <td><?php echo htmlspecialchars($row['customer_phone']); ?></td>
                             <td><?php echo htmlspecialchars($row['toname']); ?></td>
                             <td><?php echo htmlspecialchars($row['toaddress']); ?></td>
                             <td><?php echo htmlspecialchars($row['tophone']); ?></td>
