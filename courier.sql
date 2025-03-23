@@ -12,11 +12,6 @@ SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = '+05:45';
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES latin1 */;
-
 -- Database: `courier`
 
 -- --------------------------------------------------------
@@ -28,9 +23,13 @@ CREATE TABLE `customers` (
   `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `address` VARCHAR(100) NOT NULL,
-  `phone` BIGINT(20) NOT NULL,
+  `phone` BIGINT(20) NOT NULL UNIQUE,
   `email` VARCHAR(255) NOT NULL UNIQUE,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_customer_email` (`email`),
+  UNIQUE KEY `unique_customer_phone` (`phone`),
+  UNIQUE KEY `unique_customer_username` (`username`),
+  UNIQUE KEY `unique_customer_address` (`address`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Empty the `customers` table
@@ -45,7 +44,7 @@ ALTER TABLE `customers` AUTO_INCREMENT = 1;
 DROP TABLE IF EXISTS `employee`;
 CREATE TABLE `employee` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(50) DEFAULT NULL, -- Made username nullable with default NULL
+  `username` VARCHAR(50) DEFAULT NULL,
   `password` VARCHAR(255) NOT NULL,
   `education` VARCHAR(40) NOT NULL,
   `designation` VARCHAR(30) NOT NULL,
@@ -53,7 +52,7 @@ CREATE TABLE `employee` (
   `phone` BIGINT(20) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`) -- Ensure username is unique
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Empty the `employee` table
@@ -66,30 +65,32 @@ ALTER TABLE `employee` AUTO_INCREMENT = 1;
 
 -- Table structure for table `orders`
 DROP TABLE IF EXISTS `orders`;
-
 CREATE TABLE `orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `customer_id` INT(11) NOT NULL,
   `customer_email` VARCHAR(255) NOT NULL,
-  `name` VARCHAR(255) NOT NULL,
-  `address` VARCHAR(255) NOT NULL,
-  `phone` BIGINT(20) NOT NULL CHECK (`phone` > 0),
+  `customer_name` VARCHAR(50) NOT NULL,
+  `customer_address` VARCHAR(100) NOT NULL,
+  `customer_phone` BIGINT(20) NOT NULL CHECK (`customer_phone` > 0),
   `toname` VARCHAR(255) NOT NULL,
   `toaddress` VARCHAR(255) NOT NULL,
   `tophone` BIGINT(20) NOT NULL CHECK (`tophone` > 0),
   `weight` VARCHAR(100) NOT NULL,
   `price` INT(11) NOT NULL DEFAULT 0 CHECK (`price` >= 0),
-  `status` ENUM('approved', 'pending','declined','cancelled') NOT NULL DEFAULT 'pending',
+  `status` ENUM('approved', 'pending', 'declined', 'cancelled') NOT NULL DEFAULT 'pending',
   `delivery_received_status` ENUM('received', 'not received') NOT NULL DEFAULT 'not received',
   `delivery_delivered_status` ENUM('delivered', 'not delivered') NOT NULL DEFAULT 'not delivered',
   `received_time` DATETIME DEFAULT NULL,
   `delivery_time` DATETIME DEFAULT NULL,
   `time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `received_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Stores employee username permanently
-  `delivered_by_emp_name` VARCHAR(50) DEFAULT NULL, -- Stores employee username permanently
+  `received_by_emp_name` VARCHAR(50) DEFAULT NULL,
+  `delivered_by_emp_name` VARCHAR(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`customer_id`) REFERENCES `customers`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`customer_email`) REFERENCES `customers`(`email`) ON DELETE CASCADE ON UPDATE CASCADE
+  FOREIGN KEY (`customer_email`) REFERENCES `customers`(`email`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`customer_name`) REFERENCES `customers`(`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`customer_address`) REFERENCES `customers`(`address`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`customer_phone`) REFERENCES `customers`(`phone`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Empty the `orders` table
@@ -100,7 +101,3 @@ ALTER TABLE `orders` AUTO_INCREMENT = 1;
 
 COMMIT;
 
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
