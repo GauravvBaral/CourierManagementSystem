@@ -44,11 +44,10 @@ if (isset($_GET['edit'])) {
             return false;
         }
 
-if (!weightRegex.test(weight) || weight <= 0 || weight > 30) {
-    alert("Please enter a valid package weight between 1 and 30kg.");
-    return false;
-}
-
+        if (!weightRegex.test(weight) || weight <= 0 || weight > 30) {
+            alert("Please enter a valid package weight.");
+            return false;
+        }
 
         if (!addressRegex.test(toaddress)) {
             alert("Please enter a valid address with at least two words separated by commas.");
