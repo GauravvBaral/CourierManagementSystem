@@ -44,7 +44,7 @@ if (isset($_GET['edit'])) {
             return false;
         }
 
-        if (!weightRegex.test(weight) || weight <= 0 || weight > 30) {
+        if (!weightRegex.test(weight) || weight > 0 || weight <=  30) {
             alert("Please enter a valid package weight.");
             return false;
         }
