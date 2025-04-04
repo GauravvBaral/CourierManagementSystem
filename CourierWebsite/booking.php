@@ -1,4 +1,5 @@
 <?php include('bookingorder.php');
+$edit_state = false;
 
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
@@ -22,42 +23,34 @@ if (isset($_GET['edit'])) {
 <head>
     <title>Booking Page</title>
     <link rel="stylesheet" type="text/css" href="CSS/book.css">
-    <script>
+
+</head>
+<script>
     function validateForm() {
-        let name = document.forms["orderForm"]["name"].value.trim();
-        let address = document.forms["orderForm"]["address"].value.trim();
-        let phone = document.forms["orderForm"]["phone"].value.trim();
-        let weight = document.forms["orderForm"]["weight"].value.trim();
-        let toname = document.forms["orderForm"]["toname"].value.trim();
-        let toaddress = document.forms["orderForm"]["toaddress"].value.trim();
-        let tophone = document.forms["orderForm"]["tophone"].value.trim();
-        let phoneRegex = /^\d{10}$/;
-        let weightRegex = /^\d+(\.\d{1,2})?$/;
+        const toname = document.forms["orderForm"]["toname"].value.trim();
+        const toaddress = document.forms["orderForm"]["toaddress"].value.trim();
+        const tophone = document.forms["orderForm"]["tophone"].value.trim();
+        const weight = document.forms["orderForm"]["weight"].value.trim();
 
-        if ( weight === "" || toname === "" || toaddress === "" || tophone === "") {
-            alert("All fields must be filled out!");
+        if (toname === "" || toaddress === "" || tophone === "" || weight === "") {
+            alert("All fields must be filled out.");
             return false;
         }
 
-        if (!phoneRegex.test(tophone)) {
-            alert("Please enter a valid 10-digit receiver's phone number.");
+        if (!/^\d{10}$/.test(tophone)) {
+            alert("Please enter a valid 10-digit contact number.");
             return false;
         }
 
-        if (!weightRegex.test(weight) || weight <= 0 || weight > 30) {
-            alert("Please enter a valid package weight.");
-            return false;
-        }
-
-        if (!addressRegex.test(toaddress)) {
-            alert("Please enter a valid address with at least two words separated by commas.");
+        const weightValue = parseFloat(weight);
+        if (isNaN(weightValue) || weightValue < 1 || weightValue > 40) {
+            alert("Weight must be a number between 1 and 40 kilograms.");
             return false;
         }
 
         return true;
     }
 </script>
-</head>
 
 <body>
 
@@ -76,7 +69,7 @@ if (isset($_GET['edit'])) {
         <div style="border: 2px solid teal; padding: 15px; background-color: #eafaf1; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
             <h5 style="margin: 0 20px 0 0; font-size: 16px; font-weight: bold; color: teal;">NOTE TO CUSTOMERS :</h5>
             <div>
-                <p style="margin: 0 0 0.1px;">The Price is Fixed, and We Accept Only Cash On Delivery! We deliver your courier within 2 to 3 working days for a minimum distance of 60km!,We can't accept package weight more than 30kgs. Below are the details for weight and prices:</p>
+                <p style="margin: 0 0 0.1px;">The Price is Fixed, and We Accept Only Cash On Delivery! We deliver your courier within 2 to 3 working days for a minimum distance of 60km!,We can't accept package weight more than 40kgs. Below are the details for weight and prices:</p>
                 <ul style="list-style: none; padding: 0; font-size: 14px; color: #333;">
                     <li>1. Range: 1KG - 10KG - Price: 100Rs</li>
                     <li>2. Range: 11KG - 20KG - Price: 200Rs</li>
@@ -86,7 +79,7 @@ if (isset($_GET['edit'])) {
         </div>
     </section>
 
-    <form name="orderForm" method="post" action="bookingorder.php" onsubmit="return validateForm()">
+    <form name="orderForm" method="post" onsubmit="return validateForm()">
         <input type="hidden" name="id" value="<?php echo $id; ?>">
 
         <div class="form-wrapper">
