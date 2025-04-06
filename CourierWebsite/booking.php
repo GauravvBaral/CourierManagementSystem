@@ -87,7 +87,7 @@ if (isset($_GET['edit'])) {
                 <div class="form-container">
                     <table>
                         <tr>
-                            <th colspan="2">Receiver's Details</th>
+                            <th colspan="2"> <center>Receiver's Details</center></th>
                         </tr>
                         <tr>
                             <td>Receiver's Full Name:</td>
