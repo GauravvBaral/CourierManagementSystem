@@ -100,26 +100,28 @@ tr:hover {
 }
 
 /* Styling for actions column (buttons) */
-a.edit_btn {
-    padding: 6.81px 13.62px;
+.edit_btn {
+    padding: 5.42px 10.82px;
     background-color: #007bff;
     color: white;
-    border-radius: 4.26px;
+    border-radius: 3.38px;
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 4.26px;
+    margin: 3.38px;
+    border: none; 
 }
 
-a.edit_btn2 {
-    padding: 6.81px 13.62px;
+.edit_btn2 {
+    padding: 5.42px 10.82px;
     background-color: #08b140;
     color: white;
-    border-radius: 4.26px;
+    border-radius: 3.38px;
     text-decoration: none;
     text-align: center;
     display: inline-block;
-    margin: 4.26px;
+    margin: 3.38px;
+    border: none; 
 }
 
 a.edit_btn:hover {
@@ -131,7 +133,7 @@ a.del_btn {
 }
 
 a.del_btn:hover {
-    background-color: #c82333;
+    background-color: #b63845;
 }
 
 /* Editbox container styling */
