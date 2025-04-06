@@ -20,11 +20,11 @@ h1 {
 }
 
 table {
-    width: 37.30%;
-    margin: 15.53px auto;
+    width: 34.82%;
+    margin: 14.51px auto;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 1.42px 6.89px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1.33px 6.43px rgba(0, 0, 0, 0.1);
 }
 
 caption {
@@ -34,7 +34,7 @@ caption {
 }
 
 th, td {
-    padding: 6.20px;
+    padding: 5.79px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
@@ -56,19 +56,19 @@ tr:hover {
 a {
     text-decoration: none;
     color: white;
-    padding: 3.12px 7.79px;
-    border-radius: 5px;
+    padding: 2.91px 7.27px;
+    border-radius: 4.67px;
     font-weight: bold;
 }
 
 .approve_btn {
     background-color: #4CAF50;
-    margin-right: 5.63px;
+    margin-right: 5.25px;
 }
 
 .deny_btn {
     background-color: #f44336;
-    margin-right: 5.63px;
+    margin-right: 5.25px;
 }
 
 .del_btn {
@@ -76,24 +76,24 @@ a {
 }
 
 .input-group {
-    margin: 8.00px 0;
-    padding: 2.57px;
+    margin: 7.46px 0;
+    padding: 2.40px;
 }
 
 .input-group label {
-    font-size: 0.519rem;
+    font-size: 0.485rem;
     color: #555;
     display: block;
-    margin-bottom: 2.57px;
+    margin-bottom: 2.40px;
 }
 
 .input-group input,
 .input-group select {
     width: 100%;
-    padding: 5.08px;
-    font-size: 0.519rem;
+    padding: 4.74px;
+    font-size: 0.485rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4.67px;
     outline: none;
 }
 
@@ -105,13 +105,13 @@ a {
 .btn {
     background-color: #4CAF50;
     color: white;
-    padding: 6.15px 10.38px;
+    padding: 5.74px 9.70px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4.67px;
     cursor: pointer;
-    font-size: 0.519rem;
+    font-size: 0.485rem;
     width: 100%;
-    margin-top: 5.08px;
+    margin-top: 4.74px;
 }
 
 .btn:hover {
@@ -143,21 +143,21 @@ a {
     }
 
     .input-group input[type="text"] {
-        font-size: 5.94px;
+        font-size: 5.55px;
     }
 }
 
 form {
-    width: 26.30%;
-    margin: 10.40px auto;
+    width: 24.55%;
+    margin: 9.71px auto;
     background-color: #fff;
-    padding: 10.40px;
-    border-radius: 8px;
-    box-shadow: 0 1.42px 6.89px rgba(0, 0, 0, 0.1);
+    padding: 9.71px;
+    border-radius: 7.46px;
+    box-shadow: 0 1.33px 6.43px rgba(0, 0, 0, 0.1);
 }
 
 form .input-group {
-    margin-bottom: 10.40px;
+    margin-bottom: 9.71px;
 }
 
 .hover-button {
@@ -175,6 +175,7 @@ form .input-group {
     background-color: rgb(200, 33, 33);
     transform: scale(1.1);
 }
+
 .approve_btn:disabled, .deny_btn:disabled {
     color: black;
     font-weight: bold;
