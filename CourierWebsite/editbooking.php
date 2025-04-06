@@ -1,9 +1,9 @@
-<?php 
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-include('editfinalorder.php'); 
+include('editfinalorder.php');
 
 $results = mysqli_query($db, "SELECT * FROM orders");
 if (!$results) {
@@ -72,10 +72,12 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Edit Orders Page</title>
     <link rel="stylesheet" type="text/css" href="CSS/edit.css">
 </head>
+
 <body>
     <?php if (isset($_SESSION['msg'])): ?>
         <div class="msg">
@@ -87,7 +89,7 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
     <?php endif ?>
 
     <h2 style="text-align: center; background-color: darkgreen; color: yellow; padding: 30px;">Edit Booking Orders!</h2>
-    
+
     <table>
         <thead>
             <tr>
@@ -131,18 +133,20 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
                     <td><?= htmlspecialchars($row['delivery_time']); ?></td>
                     <td>
                         <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined' && $row['status'] !== 'cancelled' && $row['delivery_received_status'] !== 'received'): ?>
-                            <a class="edit_btn" href="editbooking.php?edit=<?= $row['id']; ?>&action=receive">Receive</a>
+                            <button onclick="window.location.href='editbooking.php?edit=<?= $row['id']; ?>&action=receive';" class="edit_btn">Receive</button>
                         <?php else: ?>
-                            <span style="color: black;">Receiving Disabled</span>
+                            <button class="edit_btn" disabled style="color: black; background-color: grey; cursor: not-allowed;">Receive Disabled</button>
                         <?php endif; ?>
                     </td>
+
                     <td>
                         <?php if ($row['status'] !== 'pending' && $row['status'] !== 'declined' && $row['status'] !== 'cancelled' && $row['delivery_received_status'] !== 'not received' && $row['delivery_delivered_status'] !== 'delivered'): ?>
-                            <a class="edit_btn2" href="editbooking.php?edit=<?= $row['id']; ?>&action=deliver">Deliver</a>
+                            <button onclick="window.location.href='editbooking.php?edit=<?= $row['id']; ?>&action=deliver';" class="edit_btn2">Deliver</button>
                         <?php else: ?>
-                            <span style="color: black;">Delivery Disabled</span>
+                            <button class="edit_btn2" disabled style="color: black; background-color: grey; cursor: not-allowed;">Delivery Disabled</button>
                         <?php endif; ?>
                     </td>
+
                 </tr>
             <?php } ?>
         </tbody>
@@ -152,4 +156,5 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
         <button onclick="window.location.href='index.html'" class="hover-button">Log Out</button>
     </div>
 </body>
+
 </html>
