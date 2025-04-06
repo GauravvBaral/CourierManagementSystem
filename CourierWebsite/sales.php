@@ -25,7 +25,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
     <h1>WELCOME ADMINISTRATOR!</h1>
 
     <table>
-        <caption style="font-size: 19px;"><b>ORDERED COURIERS</b></caption>
+        <caption style="font-size: 22px;">ORDERED COURIERS</caption>
         <thead>
             <tr>
                 <th>Sender's Name</th>
