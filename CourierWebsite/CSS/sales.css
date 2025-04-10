@@ -65,14 +65,28 @@ a {
     background-color: #4CAF50;
     margin-right: 5.25px;
 }
+.approve_btn:hover {
+    background-color: #5da160;
+    transform: scale(1.2);
+}
 
 .deny_btn {
     background-color: #f44336;
     margin-right: 5.25px;
 }
 
+.deny_btn:hover {
+    background-color: #f55a4e;
+    transform: scale(1.2);
+}
+
 .del_btn {
     background-color: #f44336;
+}
+
+.del_btn:hover {
+    background-color: #f55a4e;
+    transform: scale(1.1);
 }
 
 .input-group {
