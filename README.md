@@ -27,8 +27,10 @@ As an admin, you can:
 - Log in with the provided credentials  
 - Register employees  
 - Approve or decline customer orders (if a customer cancels, the order can't be approved)  
-- View the full time log of each order, including when it was placed, approved, received, and delivered
-- The role of the admin is to register employees and approve or decline orders.  
+- View the full time log of each order, including when it was placed, approved, received, and delivered  
+- View the number of customers, employees, and orders in the system  
+- Delete customer, employee, or order data from the database  
+- The role of the admin is to register employees, approve or decline orders, and manage the system's data.  
 
 As an employee, you can:
 - Only receive and deliver orders that have been approved by the admin  
