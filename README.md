@@ -6,4 +6,4 @@ To log in to the admin page, use the username 'admin' and the password 'password
 
 The JavaScript code is embedded within the HTML and PHP file; there are no separate files for JavaScript.
 
-The SQL table is empty, so register the customer and employee yourself.And also book the orders 
+The SQL table is empty, so register the customer and employee yourself.
