@@ -6,7 +6,7 @@ To log in to the admin page, use the username 'admin' and the password 'password
 
 The JavaScript code is directly embedded in the HTML and PHP files, so there are no separate JavaScript files.
 
-The SQL table is empty, so you'll need to register customers and employees yourself.
+The SQL tables are empty, so you'll need to register customers and employees manually. After registering as a customer, you can place an order for yourself. Once the admin registers an employee, that employee can receive and deliver the orders.
 
 Here’s a breakdown of how this localhost project works:
 
