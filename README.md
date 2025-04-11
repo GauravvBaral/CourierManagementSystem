@@ -8,7 +8,7 @@ The JavaScript code is directly embedded in the HTML and PHP files, so there are
 
 The SQL table is empty, so you'll need to register customers and employees yourself.
 
-Here’s a breakdown of how this project works:
+Here’s a breakdown of how this localhost project works:
 
 You can play three roles — customer, admin, and employee — to test everything.
 
