@@ -14,8 +14,8 @@ You can play three roles — customer, admin, and employee — to test everythin
 As a customer, you can:
 - Register and create your account  
 - Place an order  
-- Cancel your order at any point **before it's received by the employee**  
-- Track the status of your order — whether it’s **approved**, **declined**, **received**, or **delivered**  
+- Cancel your order at any point before it's received by the employee  
+- Track the status of your order — whether it’s approved, declined, received, or delivered  
 - View time logs, including:
   - When the order was placed  
   - When the order was received by the employee  
