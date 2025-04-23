@@ -133,3 +133,22 @@ body {
     background-color: rgba(50, 96, 146, 0.05); /* Darker on hover */
     transform: scale(1.05); /* Slightly enlarge */
 }
+.hover-button2 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background-color: #ff4b5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.hover-button2:hover {
+    background-color: #e04351;
+    transform: scale(1.05); /* Slightly enlarge */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
