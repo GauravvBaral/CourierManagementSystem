@@ -1,16 +1,20 @@
 <?php
 session_start();
-include('custlogin.php'); 
+include('custlogin.php');
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
+if (isset($_SESSION['email'])) {
+    header('Location: customerdash.php');
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = $_POST['password'];
-    
-    // Fetch user data
+
     $query = "SELECT * FROM customers WHERE email='$email'";
     $result = mysqli_query($conn, $query) or die("Could not execute query: " . mysqli_error($conn));
     $row = mysqli_fetch_assoc($result);
-    
+
     if ($row && password_verify($password, $row['password'])) {
         $_SESSION['email'] = $email;
         header('Location: customerdash.php');
@@ -49,7 +53,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         </div>
     </div>
     <div class="goback-container">
-        <a href="index.html" class="goback">Go Back</a>
+        <a href="index.php" class="goback">Go Back</a>
     </div>
 </body>
 </html>
