@@ -118,7 +118,14 @@ $courier->close();
     <title>Customer Dashboard</title>
     <link rel="stylesheet" href="CSS/customerdash.css">
 </head>
-
+<script>
+    function confirmLogout() {
+        const confirmed = confirm("Are you sure you want to logout?");
+        if (confirmed) {
+            window.location.href = 'logout.php';
+        }
+    }
+</script>
 <body>
     <div class="dashboard">
         <h1>Customer Dashboard</h1>
@@ -146,7 +153,10 @@ $courier->close();
         </div>
     </div>
     <div style="text-align: center; margin-top: 20px;">
-        <button onclick="window.location.href='index.html'" class="hover-button">LogOut</button>
+        <button onclick="window.location.href='index.html'" class="hover-button">Go-back</button>
+    </div>
+    <div>
+        <button onclick="confirmLogout()" class="hover-button2">LogOut</button>
     </div>
 </body>
 
