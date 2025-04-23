@@ -88,7 +88,8 @@ body {
 
 .hover-button:hover {
     background-color: rgb(100, 149, 237); /* Lighter blue shade on hover */
-    transform: scale(1.2); /* Increase size slightly */
+    transform: scale(1.05); /* Increase size slightly */
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 /* Button in center (Book Order) */
