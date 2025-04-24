@@ -14,7 +14,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
 
 <body>
     <?php if (isset($_SESSION['msg'])): ?>
-        <div class="msg">
+        <div class="msg" id="sessionMessage">
             <?php
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
@@ -88,5 +88,18 @@ $results = mysqli_query($db, "SELECT * FROM orders");
             Go Back
         </button>
     </div>
+
+    <script type="text/javascript">
+        // Check if there's a session message and if it exists, set a timeout to remove it
+        window.onload = function() {
+            var msgElement = document.getElementById("sessionMessage");
+            if (msgElement) {
+                setTimeout(function() {
+                    msgElement.style.display = "none";  // Hide the message after 1 minute
+                }, 60000);  // 60000 milliseconds = 1 minute
+            }
+        };
+    </script>
+
 </body>
 </html>
