@@ -1,4 +1,5 @@
-<?php include('bookingorder.php');
+<?php 
+include('bookingorder.php');
 $edit_state = false;
 
 if (isset($_GET['edit'])) {
@@ -15,7 +16,6 @@ if (isset($_GET['edit'])) {
     $weight = $record['weight'];
     $id = $record['id'];
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,39 +23,48 @@ if (isset($_GET['edit'])) {
 <head>
     <title>Booking Page</title>
     <link rel="stylesheet" type="text/css" href="CSS/book.css">
+    <script>
+        function validateForm() {
+            const toname = document.forms["orderForm"]["toname"].value.trim();
+            const toaddress = document.forms["orderForm"]["toaddress"].value.trim();
+            const tophone = document.forms["orderForm"]["tophone"].value.trim();
+            const weight = document.forms["orderForm"]["weight"].value.trim();
 
+            if (toname === "" || toaddress === "" || tophone === "" || weight === "") {
+                alert("All fields must be filled out.");
+                return false;
+            }
+
+            if (!/^\d{10}$/.test(tophone)) {
+                alert("Please enter a valid 10-digit contact number.");
+                return false;
+            }
+
+            const weightValue = parseFloat(weight);
+            if (isNaN(weightValue) || weightValue < 1 || weightValue > 40) {
+                alert("Weight must be a number between 1 and 40 kilograms.");
+                return false;
+            }
+
+            return true;
+        }
+
+        // Hide session message after 60 seconds
+        window.onload = function () {
+            const msgDiv = document.getElementById("sessionMessage");
+            if (msgDiv) {
+                setTimeout(() => {
+                    msgDiv.style.display = "none";
+                }, 60000); // 60,000ms = 1 minute
+            }
+        };
+    </script>
 </head>
-<script>
-    function validateForm() {
-        const toname = document.forms["orderForm"]["toname"].value.trim();
-        const toaddress = document.forms["orderForm"]["toaddress"].value.trim();
-        const tophone = document.forms["orderForm"]["tophone"].value.trim();
-        const weight = document.forms["orderForm"]["weight"].value.trim();
-
-        if (toname === "" || toaddress === "" || tophone === "" || weight === "") {
-            alert("All fields must be filled out.");
-            return false;
-        }
-
-        if (!/^\d{10}$/.test(tophone)) {
-            alert("Please enter a valid 10-digit contact number.");
-            return false;
-        }
-
-        const weightValue = parseFloat(weight);
-        if (isNaN(weightValue) || weightValue < 1 || weightValue > 40) {
-            alert("Weight must be a number between 1 and 40 kilograms.");
-            return false;
-        }
-
-        return true;
-    }
-</script>
 
 <body>
 
     <?php if (isset($_SESSION['msg'])): ?>
-        <div class="msg">
+        <div class="msg" id="sessionMessage">
             <?php
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
@@ -87,7 +96,7 @@ if (isset($_GET['edit'])) {
                 <div class="form-container">
                     <table>
                         <tr>
-                            <th colspan="2"> <center>Receiver's Details</center></th>
+                            <th colspan="2"><center>Receiver's Details</center></th>
                         </tr>
                         <tr>
                             <td>Receiver's Full Name:</td>
@@ -124,5 +133,4 @@ if (isset($_GET['edit'])) {
     </div>
 
 </body>
-
 </html>
