@@ -79,6 +79,7 @@ button {
 
 button:hover {
     background-color: #ff1a1a; /* Darker red on hover */
+    transform: scale(1.05);
 }
 
 button:disabled {
