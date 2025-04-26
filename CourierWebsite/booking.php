@@ -41,8 +41,8 @@ if (isset($_GET['edit'])) {
             }
 
             const weightValue = parseFloat(weight);
-            if (isNaN(weightValue) || weightValue < 1 || weightValue > 40) {
-                alert("Weight must be a number between 1 and 40 kilograms.");
+            if (isNaN(weightValue) || weightValue < 1 || weightValue > 30) {
+                alert("Weight must be a number between 1 and 30 kilograms.");
                 return false;
             }
 
@@ -78,7 +78,7 @@ if (isset($_GET['edit'])) {
         <div style="border: 2px solid teal; padding: 15px; background-color: #eafaf1; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
             <h5 style="margin: 0 20px 0 0; font-size: 16px; font-weight: bold; color: teal;">NOTE TO CUSTOMERS :</h5>
             <div>
-                <p style="margin: 0 0 0.1px;">The Price is Fixed, and We Accept Only Cash On Delivery! We deliver your courier within 2 to 3 working days for a minimum distance of 60km!,We can't accept package weight more than 40kgs. Below are the details for weight and prices:</p>
+                <p style="margin: 0 0 0.1px;">The Price is Fixed, and We Accept Only Cash On Delivery! We deliver your courier within 2 to 3 working days for a minimum distance of 60km!,We can't accept package weight more than 30kgs. Below are the details for weight and prices:</p>
                 <ul style="list-style: none; padding: 0; font-size: 14px; color: #333;">
                     <li>1. Range: 1KG - 10KG - Price: 100Rs</li>
                     <li>2. Range: 11KG - 20KG - Price: 200Rs</li>
