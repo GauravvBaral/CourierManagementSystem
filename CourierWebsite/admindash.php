@@ -61,31 +61,31 @@ $courier->close();
             </div>
             <div class="stat">
                 <h2><?php echo $orderCount; ?></h2>
-                <p>Orders</p>
+                <p style="font-size: 17px;">Orders</p>
                 <button onclick="location.href='sales.php'">View Orders</button>
             </div>
             <div class="stat">
                 <h2><?php echo $employeeCount; ?></h2>
-                <p>Employees</p>
+                <p style="font-size: 17px;">Employees</p>
                 <button onclick="location.href='employeeview.php'">View Employees</button>
             </div>
             <div class="stat">
                 <h2><?php echo $customerCount; ?></h2>
-                <p>Customers</p>
+                <p style="font-size: 17px;">Customers</p>
                 <button onclick="location.href='customerview.php'">View Customer</button>
             </div>
 
             <div class="stat">
                 <h2><?php echo $approvedOrders; ?></h2>
-                <p>Approved Orders</p>
+                <p style="font-size: 17px;">Approved Orders</p>
             </div>
             <div class="stat">
                 <h2><?php echo $receivedOrders; ?></h2>
-                <p>Received Orders</p>
+                <p style="font-size: 17px;">Received Orders</p>
             </div>
             <div class="stat">
                 <h2><?php echo $deliveredOrders; ?></h2>
-                <p>Delivered Orders</p>
+                <p style="font-size: 17px;">Delivered Orders</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 20px;">
