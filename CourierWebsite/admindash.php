@@ -77,15 +77,15 @@ $courier->close();
 
             <div class="stat">
                 <h2><?php echo $approvedOrders; ?></h2>
-                <p style="font-size: 17px;">Approved Orders</p>
+                <p style="font-size: 14px;">Approved Orders</p>
             </div>
             <div class="stat">
                 <h2><?php echo $receivedOrders; ?></h2>
-                <p style="font-size: 17px;">Received Orders</p>
+                <p style="font-size: 14px;">Received Orders</p>
             </div>
             <div class="stat">
                 <h2><?php echo $deliveredOrders; ?></h2>
-                <p style="font-size: 17px;">Delivered Orders</p>
+                <p style="font-size: 14px;">Delivered Orders</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 20px;">
