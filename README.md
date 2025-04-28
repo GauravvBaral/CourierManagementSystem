@@ -3,7 +3,7 @@ Create a phpMyAdmin database named 'courier' with the collation 'latin1_swedish_
 
 To log in to the admin page, use the username 'admin' and the password 'password'. Only the admin can register employees.
 
-The SQL tables are empty, so you'll need to register customers and employees manually. After registering as a customer, you can place an order for yourself. Then, log in as an admin and register an employee. Once the employee is registered, they can receive and deliver the order.
+The SQL tables are empty, so you'll need to register customers and employees manually. 
 
 Here’s a breakdown of how this localhost project works:
 
