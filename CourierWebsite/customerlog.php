@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
     <div class="goback-container">
-        <a href="index.php" class="goback">Go Back</a>
+        <a href="index.html" class="goback">Go Back</a>
     </div>
 </body>
 </html>
