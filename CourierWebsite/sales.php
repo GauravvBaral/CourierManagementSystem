@@ -96,7 +96,7 @@ $results = mysqli_query($db, "SELECT * FROM orders");
             if (msgElement) {
                 setTimeout(function() {
                     msgElement.style.display = "none";  // Hide the message after 1 minute
-                }, 60000);  // 60000 milliseconds = 1 minute
+                }, 30000);  // 30000 milliseconds = 30 secs
             }
         };
     </script>
