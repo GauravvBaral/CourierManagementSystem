@@ -1,5 +1,5 @@
 # CourierManagementSystem
-Create a phpMyAdmin database named 'courier' with the collation 'latin1_swedish_ci'. Once the database is set up, import the SQL file named **'courier.sql'** found in this repository.
+Create a PHPMyAdmin database named 'courier'. After the database is created, import the SQL file named 'courier.sql' from this repository.
 
 To log in to the admin panel, use the username 'admin' and the password 'password'. Only the admin can register employees.
 
