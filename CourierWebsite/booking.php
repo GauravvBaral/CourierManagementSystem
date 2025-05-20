@@ -55,7 +55,7 @@ if (isset($_GET['edit'])) {
             if (msgDiv) {
                 setTimeout(() => {
                     msgDiv.style.display = "none";
-                }, 60000); // 60,000ms = 1 minute
+                }, 30000); // 30000ms = 30 secs
             }
         };
     </script>
