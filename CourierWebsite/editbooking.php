@@ -74,7 +74,7 @@ if (isset($_GET['edit']) && isset($_GET['action'])) {
             if (msgDiv) {
                 setTimeout(() => {
                     msgDiv.style.display = "none";
-                }, 60000); // 60 seconds
+                }, 30000); // 30 seconds
             }
         };
     </script>
